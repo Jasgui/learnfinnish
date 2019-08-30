@@ -38,7 +38,7 @@ button.onclick = function () {
     db.on('error', console.error.bind(console, 'connection error:'));
     db.once('open', function () {
 
-        Kitten.find(function (err; kittens) {
+        Kitten.find(function (err, kittens) {
             if (err) return console.error(err);
             console.log(kittens);
         })
