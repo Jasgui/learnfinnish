@@ -8,7 +8,7 @@
 
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://159.65.55.177/learnfinnish', {
+mongoose.connect('mongodb://127.0.0.1:27017/learnfinnish', {
     useNewUrlParser: true
 });
 
