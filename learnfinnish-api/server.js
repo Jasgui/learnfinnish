@@ -34,10 +34,8 @@ var fluffy = new Kitten({
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
-    fluffy.save(function (err, fluffy) {
+    silence.save(function (err, silence) {
         if (err) return console.error(err);
-        fluffy.speak();
-
     });
 
 
