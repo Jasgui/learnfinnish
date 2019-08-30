@@ -6,6 +6,7 @@
 //    console.log("api running");
 //});
 
+var button = document.getElementById("button");
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1:27017/learnfinnish', {
@@ -22,21 +23,26 @@ kittySchema.methods.speak = function () {
 
 }
 var Kitten = mongoose.model('Kitten', kittySchema);
+//
+//var silence = new Kitten({
+//    name: 'Silence'
+//});
+//var fluffy = new Kitten({
+//    name: 'Fluffy'
+//});
 
-var silence = new Kitten({
-    name: 'Silence'
-});
-var fluffy = new Kitten({
-    name: 'Fluffy'
-});
 
+button.onclick = function () {
 
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function () {
-    silence.save(function (err, silence) {
-        if (err) return console.error(err);
+    var db = mongoose.connection;
+    db.on('error', console.error.bind(console, 'connection error:'));
+    db.once('open', function () {
+
+        Kitten.find(function (err; kittens) {
+            if (err) return console.error(err);
+            console.log(kittens);
+        })
+
     });
 
-
-});
+};
