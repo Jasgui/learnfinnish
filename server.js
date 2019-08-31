@@ -68,24 +68,24 @@ app.get('/wishlist', function (req, res) {
 
 app.put('/wishlish/product/add', function (req, res) {
             Product.findOne({
-                _id: req.body.productId
-            }, function (err, product) {
-                if (err) {
-                    res.status(500).send({
-                        error: "Could not add item to wishlist"
-                    });
-                } else {
-                    Wishlist.update({
-                            _id: req.body.wishlishId
-                        }, {
-                            $addToSet: {
-                                products: product._id
-                            }
-                        }, function (err, wishlist) {
-                            if (err) {
-                                res.status(500).send({
+                    _id: req.body.productId
+                }, function (err, product) {
+                    if (err) {
+                        res.status(500).send({
+                            error: "Could not add item to wishlist"
+                        });
+                    } else {
+                        Wishlist.update({
+                                _id: req.body.wishlishId
+                            }, {
+                                $addToSet: {
+                                    products: product._id
+                                }
+                            }, function (err, wishlist) {
+                                if (err) {
+                                    res.status(500).send({
                                         error: "Could not add item to wishlist"
-                                    }
+                                    });
                                     else {
                                         res.send(wishlist);
                                     }
@@ -94,6 +94,6 @@ app.put('/wishlish/product/add', function (req, res) {
                     });
             });
 
-            app.listen(3000, function () {
-                console.log("API is running on port 3000");
-            });
+        app.listen(3000, function () {
+            console.log("API is running on port 3000");
+        });
