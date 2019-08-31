@@ -2,7 +2,7 @@ const button = document.getElementById('button');
 
 button.onclick = function () {
 
-    fetch('https://learnfinnish.xyz:3000/product')
+    fetch('http://learnfinnish.xyz:3000/product')
         .then(function (res) {
             return res.json();
         })
