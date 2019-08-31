@@ -60,11 +60,22 @@ app.post('/wishlist', function (req, res) {
 
 });
 
+
 app.get('/wishlist', function (req, res) {
-    Wishlist.find({}, function (err, wishlists) {
-        res.send(wishlists);
+    Wishlist.find({}).populate({
+        path: 'products',
+        model: 'Product'
+    }).exec(function (err, wishlists) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch list"
+            });
+        } else {
+            res.send(wishlists);
+        }
     });
 });
+
 
 app.put('/wishlist/product/add', function (req, res) {
 
@@ -82,13 +93,13 @@ app.put('/wishlist/product/add', function (req, res) {
                 $addToSet: {
                     products: product._id
                 }
-            }, function (err, wishlist) {
+            }, function (err, updateStatus) {
                 if (err) {
                     res.status(500).send({
                         error: "Could not add item to wishlist"
                     });
                 } else {
-                    res.send(wishlist);
+                    res.send(updateStatus);
                 }
 
             });
