@@ -1,5 +1,5 @@
 const button = document.getElementById('button');
-import HttpService from '/services/http-service';
+import HttpService from '/http-service';
 
 const http = new HttpService();
 
