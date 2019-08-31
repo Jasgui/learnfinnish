@@ -66,7 +66,7 @@ app.get('/wishlist', function (req, res) {
     });
 });
 
-app.put('/wishlish/product/add', function (req, res) {
+app.put('/wishlist/product/add', function (req, res) {
 
     Product.findOne({
         _id: req.body.productId
