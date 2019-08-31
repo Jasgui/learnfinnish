@@ -1,6 +1,11 @@
 var express = require('express');
 var app = express();
-var bodyparser = require('body-parser');
+var bodyParser = require('body-parser');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 
 
 var ingredients = [
@@ -26,6 +31,18 @@ app.get('/', function (req, res) {
 
     res.send(ingredients);
 
+});
+
+app.post('/', function (req, res) {
+    var ingredient = req.body;
+    if (!ingredient || ingredient.text === "") {
+        res.status(500).send({
+            error: "your ingredient must have text"
+        });
+    } else {
+        ingredients.push(ingredient);
+        res.status(200).send(ingredients);
+    }
 });
 
 
