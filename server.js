@@ -31,6 +31,18 @@ app.post('/product', function (req, res) {
     });
 });
 
+app.get('/product', function (req, res) {
+    Product.find({}, function (err, products) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch product"
+            });
+        } else {
+            res.send(products);
+        }
+    });
+});
+
 app.listen(3000, function () {
     console.log("API is running on port 3000");
 });
