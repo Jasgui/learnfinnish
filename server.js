@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017', {
+mongoose.connect('mongodb://127.0.0.1:27017/testdatabase', {
     useNewUrlParser: true
 });
 var db = mongoose.connection;
