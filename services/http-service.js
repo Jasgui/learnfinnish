@@ -1,9 +1,6 @@
 import 'whatwg-fetch';
 
 
-
-export default HttpService;
-
 class HttpService {
     getProducts = () => {
 
