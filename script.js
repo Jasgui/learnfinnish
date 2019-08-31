@@ -1,12 +1,11 @@
 const button = document.getElementById('button');
+import HttpService from './services/http-service';
+
+const http = new HttpService();
+
+
 
 button.onclick = function () {
 
-    fetch('https://learnfinnish.xyz:3000/product')
-        .then(function (res) {
-            return res.json();
-        })
-        .then(function (myJson) {
-            console.log(JSON.stringify(myJson));
-        });
+    http.getproducs();
 };
