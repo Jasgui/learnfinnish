@@ -43,6 +43,23 @@ app.get('/product', function (req, res) {
     });
 });
 
+app.post('/wishlist', function (req, res) {
+
+    var wishlisht = new Wishlist();
+    wishlisht.title = req.body.title;
+
+    wishlisht.save(function (err, savedWishlist) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not create wishlist"
+            });
+        } else {
+            res.send(savedWishlist);
+        }
+    });
+
+});
+
 app.listen(3000, function () {
     console.log("API is running on port 3000");
 });
