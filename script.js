@@ -14,7 +14,7 @@ button.onclick = function () {
         return response.json();
     }).then(function (data) {
         console.log(data);
-        textcheck.text = data;
+        textcheck.innerHTML = data;
     }).catch(function () {
         console.log("Booo");
     });
