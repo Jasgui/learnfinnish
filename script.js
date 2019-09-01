@@ -1,11 +1,12 @@
 const button = document.getElementById('button');
-import HttpService from '/services/http-service.js';
+//import HttpService from '/services/http-service.js';
 
-const http = new HttpService();
+//const http = new HttpService();
 
 
 
 button.onclick = function () {
 
-    http.getproducs();
+    console.log("at least the button works");
+    //    http.getproducs();
 };
