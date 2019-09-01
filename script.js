@@ -1,4 +1,5 @@
 const button = document.getElementById('button');
+const textcheck = document.getElementById('textcheck');
 //import HttpService from './services/http-service.js';
 
 //const http = new HttpService();
@@ -13,6 +14,7 @@ button.onclick = function () {
         return response.json();
     }).then(function (data) {
         console.log(data);
+        textcheck.text = data;
     }).catch(function () {
         console.log("Booo");
     });
