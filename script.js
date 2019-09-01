@@ -8,5 +8,5 @@ const http = new HttpService();
 button.onclick = function () {
 
     console.log("at least the button works");
-    http.getproducs();
+    http.getproducts();
 };
