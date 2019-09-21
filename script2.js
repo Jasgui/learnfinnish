@@ -7,8 +7,8 @@ buttonPost.onclick = function () {
     const url = "http://learnfinnish.xyz:3000/product";
 
     let product = {
-        title: "I don't know",
-        price: 39.99
+        "title": "I don't know",
+        "price": 39.99
     };
 
     let fetchData = {
