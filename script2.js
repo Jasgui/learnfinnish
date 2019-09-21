@@ -11,18 +11,20 @@ buttonPost.onclick = function () {
         price: 39.99
     };
 
-    var data = new FormData();
-    data.append("json", JSON.stringify(product));
 
     let fetchData = {
         method: 'POST',
         body: data,
-        headers: new Headers()
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(product)
     };
 
     fetch(url, fetchData)
-        .then((res) => console.log(res))
-
+        .then(res => res.json())
+        .then(res => console.log(res));
 };
 
 
