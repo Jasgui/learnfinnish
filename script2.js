@@ -4,7 +4,7 @@ const textcheck = document.getElementById('textcheck');
 
 button.onclick = function () {
 
-    const url = "http://learnfinnish.xyz/product";
+    const url = "http://learnfinnish.xyz/product:3000";
 
     fetch(url)
         .then((res) => res.json())
