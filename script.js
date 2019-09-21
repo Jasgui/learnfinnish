@@ -11,18 +11,4 @@ button.onclick = function () {
         .then console.log(res);
 
 
-
-
-
-    //    
-    //    fetch('http://learnfinnish.xyz:3000/product').then(function (response) {
-    //        return response.json();
-    //    }).then(function (data) {
-    //        console.log(data);
-    //        textcheck.innerHTML = data;
-    //    }).catch(function () {
-    //        console.log("Booo");
-    //    });
-
-
 };
