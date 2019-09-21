@@ -2,28 +2,19 @@ const button = document.getElementById('button');
 const textcheck = document.getElementById('textcheck');
 const buttonPost = document.getElementById('buttonPost');
 
+import {
+    postreq
+} from '/functions.js';
+
 buttonPost.onclick = function () {
 
-    const url = "http://learnfinnish.xyz:3000/product";
-
-    let product = {
-        title: "I don't know",
-        price: 39.99
+    var product = {
+        title: "a new one",
+        price: 199
     };
 
+    postreq(product);
 
-    let fetchData = {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(product)
-    };
-
-    fetch(url, fetchData)
-        .then(res => res.json())
-        .then(res => console.log(res));
 };
 
 
