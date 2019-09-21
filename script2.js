@@ -3,7 +3,8 @@ const textcheck = document.getElementById('textcheck');
 const buttonPost = document.getElementById('buttonPost');
 
 import {
-    postreq
+    postreq,
+    getreq
 } from '/functions.js';
 
 buttonPost.onclick = function () {
@@ -20,11 +21,6 @@ buttonPost.onclick = function () {
 
 button.onclick = function () {
 
-    const url = "http://learnfinnish.xyz:3000/product";
-
-    fetch(url)
-        .then((res) => res.json())
-        .then((data) => console.log(data))
-
+    console.log(getreq);
 
 };

@@ -16,6 +16,20 @@ var postreq = (data) => {
         .then(res => console.log(res));
 };
 
+var getreq = () => {
+
+    const url = "http://learnfinnish.xyz:3000/product";
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) =>
+            return data)
+
+};
+
+
+
+
 export {
-    postreq
+    postreq,
+    getreq
 };
