@@ -2,7 +2,7 @@ const button = document.getElementById('button');
 const textcheck = document.getElementById('textcheck');
 const buttonPost = document.getElementById('buttonPost');
 
-buttonPost.onclick = () => {
+buttonPost.onclick = function () {
 
     const url = "http://learnfinnish.xyz:3000/product";
 
