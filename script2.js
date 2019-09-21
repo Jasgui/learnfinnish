@@ -8,7 +8,7 @@ button.onclick = function () {
 
     fetch(url)
         .then((res) => res.json())
-        .then console.log(res);
+        .then((data) => console.log(data))
 
 
 };
