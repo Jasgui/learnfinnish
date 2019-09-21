@@ -7,6 +7,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/testdatabase', {
 });
 var db = mongoose.connection;
 
+
 var Product = require('./model/product');
 var Wishlist = require('./model/wishlist');
 
