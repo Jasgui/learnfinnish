@@ -21,9 +21,7 @@ var getreq = () => {
     const url = "http://learnfinnish.xyz:3000/product";
     fetch(url)
         .then((res) => res.json())
-        .then(function (data) {
-            return data;
-        })
+        .then((data) => console.log(data))
 
 };
 

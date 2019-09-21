@@ -21,6 +21,6 @@ buttonPost.onclick = function () {
 
 button.onclick = function () {
 
-    console.log(getreq());
+    getreq();
 
 };
