@@ -22,7 +22,7 @@ var getreq = () => {
     fetch(url)
         .then((res) => res.json())
         .then(function (data) {
-            console.log(data);
+            return data;
         })
 
 };
