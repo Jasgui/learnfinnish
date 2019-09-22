@@ -11,7 +11,7 @@ import {
     getreq,
     postrev,
     getrev,
-    rename
+    dropCollection
 } from '/functions.js';
 
 
