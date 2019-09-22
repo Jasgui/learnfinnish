@@ -56,8 +56,8 @@ var rename = () => {
         method: 'POST'
     };
     fetch(url, fetchData)
-        .then console.log("done");
-}
+        .then((res) => console.log("done"))
+};
 
 
 
