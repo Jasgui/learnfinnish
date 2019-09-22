@@ -53,7 +53,7 @@ var getrev = () => {
 var rename = () => {
     const url = "http://learnfinnish.xyz:3000/rename";
     let fetchData = {
-        method = 'POST'
+        method: 'POST'
     };
     fetch(url, fetchData)
         .then console.log("done");
