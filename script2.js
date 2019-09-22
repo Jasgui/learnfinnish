@@ -15,7 +15,7 @@ import {
 
 import {
     initialData
-} from '/initdata/init/js';
+} from '/initdata/init.js';
 
 
 buttonInit.onclick = () => {
