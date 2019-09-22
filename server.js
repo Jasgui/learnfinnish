@@ -59,6 +59,66 @@ app.post('/review', function (req, res) {
     });
 });
 
+app.post('/new', function (req, res) {
+    var item = new Newphrase();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/done', function (req, res) {
+    var item = new Done();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/mistake', function (req, res) {
+    var item = new Mistake();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/reviewedmistake', function (req, res) {
+    var item = new Reviewedmistake();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
 app.post('/drop', function (req, res) {
     var name = req.body.collection;
 
@@ -98,6 +158,53 @@ app.get('/review', function (req, res) {
     });
 });
 
+app.get('/new', function (req, res) {
+    Newphrase.find({}, function (err, items) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch items from review"
+            });
+        } else {
+            res.send(items);
+        }
+    });
+});
+
+app.get('/done', function (req, res) {
+    Done.find({}, function (err, items) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch items from review"
+            });
+        } else {
+            res.send(items);
+        }
+    });
+});
+
+app.get('/mistake', function (req, res) {
+    Mistake.find({}, function (err, items) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch items from review"
+            });
+        } else {
+            res.send(items);
+        }
+    });
+});
+
+app.get('/reviewedmistake', function (req, res) {
+    Reviewedmistake.find({}, function (err, items) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch items from review"
+            });
+        } else {
+            res.send(items);
+        }
+    });
+});
 app.listen(3000, function () {
     console.log("API is running on port 3000");
 });

@@ -5,6 +5,14 @@ const buttonGetReview = document.getElementById('buttonGetReview');
 const buttonPostReview = document.getElementById('buttonPostReview');
 const buttonDelete = document.getElementById('buttonDelete');
 const buttonInit = document.getElementById('buttonInit');
+const buttonPrep = document.getElementById('buttonPrep');
+
+var loc_all = [];
+var loc_news = [];
+var loc_reviews = [];
+var loc_mistakes = [];
+var loc_reviewedMistakes = [];
+var loc_done = [];
 
 
 import {
@@ -17,6 +25,22 @@ import {
     initialData
 } from '/initdata/init.js';
 
+
+buttonPrep.onclick = () => {
+
+    const url = "http://learnfinnish.xyz:3000/all";
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => {
+
+            for (var i = 0; i < data.length; i++) {
+
+                var result = await postreq(data[i], "new");
+
+            }
+        })
+
+};
 
 buttonInit.onclick = async function () {
 
