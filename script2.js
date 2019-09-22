@@ -36,6 +36,11 @@ import {
 
 buttonCheck.onclick = () => {
     console.log(loc_news);
+    console.log(loc_done);
+    console.log(loc_mistakes);
+    console.log(loc_reviewedMistakes);
+    console.log(loc_reviews);
+
 }
 
 
