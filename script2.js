@@ -9,12 +9,12 @@ import {
 
 buttonPost.onclick = function () {
 
-    var product = {
-        title: "a new one",
-        price: 199
+    var item = {
+        finnish: "hyvää päivää!",
+        french: "bonjour !"
     };
 
-    postreq(product);
+    postreq(item);
 
 };
 

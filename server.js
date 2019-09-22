@@ -8,8 +8,12 @@ mongoose.connect('mongodb://127.0.0.1:27017/newtestdatabase', {
 var db = mongoose.connection;
 
 
-var Product = require('./model/product');
-var Wishlist = require('./model/wishlist');
+var Allitem = require('./model/allitem');
+var Done = require('./model/done');
+var Mistake = require('./model/mistake');
+var Newphrase = require('./newphrase');
+var Review = require('./review');
+var Reviewedmistake = require('./reviewedmistake');
 
 
 app.use(bodyParser.json());
@@ -24,100 +28,35 @@ app.all('/*', function (req, res, next) {
     next();
 });
 
-app.post('/product', function (req, res) {
-    var product = new Product();
-    product.title = req.body.title;
-    product.price = req.body.price;
-    product.save(function (err, savedProduct) {
+
+app.post('/all', function (req, res) {
+    var allitem = new Allitem();
+    allitem.finnish = req.body.finnish;
+    allitem.french = req.body.french;
+    allitem.save(function (err, savedItem) {
         if (err) {
             res.status(500).send({
-                error: "Could not save product"
+                error: "Could not save item"
             });
         } else {
-            res.status(200).send(savedProduct);
-        }
-    });
-});
-
-app.get('/product', function (req, res) {
-    Product.find({}, function (err, products) {
-        if (err) {
-            res.status(500).send({
-                error: "Could not fetch product"
-            });
-        } else {
-            res.send(products);
-        }
-    });
-});
-
-app.post('/wishlist', function (req, res) {
-
-    var wishlisht = new Wishlist();
-    wishlisht.title = req.body.title;
-
-    wishlisht.save(function (err, savedWishlist) {
-        if (err) {
-            res.status(500).send({
-                error: "Could not create wishlist"
-            });
-        } else {
-            res.send(savedWishlist);
-        }
-    });
-
-});
-
-
-app.get('/wishlist', function (req, res) {
-    Wishlist.find({}).populate({
-        path: 'products',
-        model: 'Product'
-    }).exec(function (err, wishlists) {
-        if (err) {
-            res.status(500).send({
-                error: "Could not fetch list"
-            });
-        } else {
-            res.send(wishlists);
+            res.send(savedItem);
         }
     });
 });
 
 
-app.put('/wishlist/product/add', function (req, res) {
-
-    Product.findOne({
-        _id: req.body.productId
-    }, function (err, product) {
+app.get('/all', function (req, res) {
+    Allitem.find({}, function (err, items) {
         if (err) {
             res.status(500).send({
-                error: "Could not add item to wishlist"
+                error: "Could not fetch items"
             });
         } else {
-            Wishlist.update({
-                _id: req.body.wishlistId
-            }, {
-                $addToSet: {
-                    products: product._id
-                }
-            }, function (err, updateStatus) {
-                if (err) {
-                    res.status(500).send({
-                        error: "Could not add item to wishlist"
-                    });
-                } else {
-                    res.send(updateStatus);
-                }
-
-            });
+            res.send(items);
         }
-
-
     });
-
-
 });
+
 
 app.listen(3000, function () {
     console.log("API is running on port 3000");

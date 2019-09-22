@@ -1,6 +1,6 @@
 var postreq = (data) => {
 
-    const url = "http://learnfinnish.xyz:3000/product";
+    const url = "http://learnfinnish.xyz:3000/all";
 
     let fetchData = {
         method: 'POST',
@@ -18,7 +18,7 @@ var postreq = (data) => {
 
 var getreq = () => {
 
-    const url = "http://learnfinnish.xyz:3000/product";
+    const url = "http://learnfinnish.xyz:3000/all";
     fetch(url)
         .then((res) => res.json())
         .then((data) => console.log(data))
