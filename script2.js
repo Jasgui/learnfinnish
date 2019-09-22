@@ -1,13 +1,26 @@
 const button = document.getElementById('button');
 const textcheck = document.getElementById('textcheck');
 const buttonPost = document.getElementById('buttonPost');
+const buttonGetReview = document.getElementById('buttonGetReview');
+const buttonPostReview = document.getElementById('buttonPostReview');
 
 import {
     postreq,
-    getreq
+    getreq,
+    postrev,
+    getrev
 } from '/functions.js';
 
-buttonPost.onclick = function () {
+
+buttonPostReview.onclick = () => {
+    var item = {
+        finnish: "kiitos",
+        french: "merci"
+    };
+    postrev(item);
+};
+
+buttonPost.onclick = () => {
 
     var item = {
         finnish: "hyvää päivää!",
@@ -18,8 +31,13 @@ buttonPost.onclick = function () {
 
 };
 
+buttonGetReview.onclick = () => {
 
-button.onclick = function () {
+    getrev();
+
+}
+
+button.onclick = () => {
 
     getreq();
 

@@ -30,10 +30,25 @@ app.all('/*', function (req, res, next) {
 
 
 app.post('/all', function (req, res) {
-    var allitem = new Allitem();
-    allitem.finnish = req.body.finnish;
-    allitem.french = req.body.french;
-    allitem.save(function (err, savedItem) {
+    var item = new Allitem();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/review', function (req, res) {
+    var item = new Review();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
         if (err) {
             res.status(500).send({
                 error: "Could not save item"
