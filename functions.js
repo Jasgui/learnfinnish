@@ -3,7 +3,7 @@ var postreq = (data, place) => {
     const url = "http://learnfinnish.xyz:3000/" + place;
 
     let fetchData = {
-        method = 'POST',
+        method: 'POST',
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
