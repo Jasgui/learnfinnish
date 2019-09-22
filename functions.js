@@ -31,7 +31,7 @@ var postrev = (data) => {
 
     fetch(url, fetchData)
         .then(res => res.json())
-        .then(res => console.log(res));
+        .then(res => console.log(res))
 };
 
 var getreq = () => {
@@ -50,13 +50,19 @@ var getrev = () => {
         .then((data) => console.log(data))
 };
 
-var rename = () => {
-    const url = "http://learnfinnish.xyz:3000/rename";
+var dropCollection = (data) => {
+    const url = "http://learnfinnish.xyz:3000/drop";
     let fetchData = {
-        method: 'POST'
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
     };
     fetch(url, fetchData)
-        .then((res) => console.log("done"))
+        .then(res => res.json())
+        .then(res => console.log(res))
 };
 
 
@@ -66,5 +72,5 @@ export {
     getreq,
     getrev,
     postrev,
-    rename
+    dropCollection
 };

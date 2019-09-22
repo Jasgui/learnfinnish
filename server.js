@@ -59,11 +59,20 @@ app.post('/review', function (req, res) {
     });
 });
 
-app.post('/rename', function (req, res) {
-    db.reviews.renameCollection("reviews_old");
-    console.log("renamed");
-    res.send("renamed");
-})
+app.post('/drop', function (req, res) {
+    var name = req.body.collection;
+
+    mongoose.connection.db.dropCollection(name, function (err, result) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not delete the Collection"
+            });
+        } else {
+            res.send(result);
+        }
+    });
+
+});
 
 app.get('/all', function (req, res) {
     Allitem.find({}, function (err, items) {

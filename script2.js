@@ -3,7 +3,7 @@ const textcheck = document.getElementById('textcheck');
 const buttonPost = document.getElementById('buttonPost');
 const buttonGetReview = document.getElementById('buttonGetReview');
 const buttonPostReview = document.getElementById('buttonPostReview');
-const buttonRename = document.getElementById('buttonRename');
+const buttonDelete = document.getElementById('buttonDelete');
 
 
 import {
@@ -15,8 +15,11 @@ import {
 } from '/functions.js';
 
 
-buttonRename.onclick = () => {
-    rename();
+buttonDelete.onclick = () => {
+    var collectionToDrop = {
+        collection: "reviews"
+    };
+    dropCollection(collectionToDrop);
 };
 
 buttonPostReview.onclick = () => {
