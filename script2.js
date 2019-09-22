@@ -18,12 +18,12 @@ import {
 } from '/initdata/init.js';
 
 
-buttonInit.onclick = () => {
+buttonInit.onclick = async function () {
 
     for (var i = 0; i < initialData.length; i++) {
 
-        postreq(initialData[i], "all");
-
+        var result = postreq(initialData[i], "all");
+        console.log(result);
     }
 
 };
