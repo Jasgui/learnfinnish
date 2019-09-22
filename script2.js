@@ -20,6 +20,12 @@ import {
 
 buttonInit.onclick = () => {
 
+    for (var i = 0; i < initialData.length; i++) {
+
+        postreq(initialData[i], "all");
+
+    }
+
 };
 
 buttonDelete.onclick = () => {
