@@ -26,12 +26,12 @@ import {
 } from '/initdata/init.js';
 
 
-buttonPrep.onclick = async function () {
+buttonPrep.onclick = () => {
 
     const url = "http://learnfinnish.xyz:3000/all";
     fetch(url)
         .then((res) => res.json())
-        .then((data) => {
+        .then(async function (data) {
 
             for (var i = 0; i < data.length; i++) {
 
