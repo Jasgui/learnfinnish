@@ -15,6 +15,12 @@ var Newphrase = require('./model/newphrase');
 var Review = require('./model/review');
 var Reviewedmistake = require('./model/reviewedmistake');
 
+var Done_old = require('./model/done_old');
+var Mistake_old = require('./model/mistake_old');
+var Newphrase_old = require('./model/new_old');
+var Review_old = require('./model/review_old');
+var Reviewedmistake_old = require('./model/reviewedmistake_old');
+
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -119,6 +125,81 @@ app.post('/reviewedmistake', function (req, res) {
     });
 });
 
+
+app.post('/new_old', function (req, res) {
+    var item = new Newphrase_old();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/done_old', function (req, res) {
+    var item = new Done_old();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/mistake_old', function (req, res) {
+    var item = new Mistake_old();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/review_old', function (req, res) {
+    var item = new Review_old();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
+app.post('/reviewedmistake_old', function (req, res) {
+    var item = new Reviewedmistake_old();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
 app.post('/drop', function (req, res) {
     var name = req.body.collection;
 
@@ -133,6 +214,8 @@ app.post('/drop', function (req, res) {
     });
 
 });
+
+
 
 app.get('/all', function (req, res) {
     Allitem.find({}, function (err, items) {

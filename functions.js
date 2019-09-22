@@ -29,6 +29,10 @@ var getreq = (place) => {
 
 
 var dropCollection = (data) => {
+
+    var bodydata = {
+        collection: data
+    };
     const url = "http://learnfinnish.xyz:3000/drop";
     let fetchData = {
         method: 'POST',
@@ -36,7 +40,7 @@ var dropCollection = (data) => {
             'Accept': 'application/json, text/plain, */*',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(data)
+        body: JSON.stringify(bodydata)
     };
     fetch(url, fetchData)
         .then(res => res.json())
