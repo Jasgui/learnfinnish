@@ -22,7 +22,7 @@ buttonInit.onclick = async function () {
 
     for (var i = 0; i < initialData.length; i++) {
 
-        var result = postreq(initialData[i], "all");
+        var result = await postreq(initialData[i], "all");
         console.log(result);
     }
 
