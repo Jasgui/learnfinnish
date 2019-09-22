@@ -26,7 +26,7 @@ import {
 } from '/initdata/init.js';
 
 
-buttonPrep.onclick = () => {
+buttonPrep.onclick = async function () {
 
     const url = "http://learnfinnish.xyz:3000/all";
     fetch(url)
