@@ -66,14 +66,6 @@ buttonStart.onclick = () => {
     fetch(URL_NEW)
         .then(res => res.json())
         .then(data => loc_news = [...data])
-        .then(data => {
-            dropCollection("new_old")
-        })
-        .then(async function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var result = await postreq(data[i], "new_old");
-            }
-        })
         .then(function () {
             console.log("new copied to local and new_old");
 
@@ -82,14 +74,6 @@ buttonStart.onclick = () => {
     fetch(URL_MISTAKE)
         .then(res => res.json())
         .then(data => loc_mistakes = [...data])
-        .then(data => {
-            dropCollection("mistake_old")
-        })
-        .then(async function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var result = await postreq(data[i], "mistake_old");
-            }
-        })
         .then(function () {
             console.log("mistake copied to local and mistake_old");
         })
@@ -97,14 +81,6 @@ buttonStart.onclick = () => {
     fetch(URL_DONE)
         .then(res => res.json())
         .then(data => loc_done = [...data])
-        .then(data => {
-            dropCollection("done_old")
-        })
-        .then(async function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var result = await postreq(data[i], "done_old");
-            }
-        })
         .then(function () {
             console.log("done copied to local and done_old");
         })
@@ -112,14 +88,6 @@ buttonStart.onclick = () => {
     fetch(URL_REVIEW)
         .then(res => res.json())
         .then(data => loc_reviews = [...data])
-        .then(data => {
-            dropCollection("review_old")
-        })
-        .then(async function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var result = await postreq(data[i], "review_old");
-            }
-        })
         .then(function () {
             console.log("review copied to local and review_old");
         })
@@ -128,14 +96,6 @@ buttonStart.onclick = () => {
     fetch(URL_REVIEWEDMISTAKE)
         .then(res => res.json())
         .then(data => loc_reviewedMistakes = [...data])
-        .then(data => {
-            dropCollection("reviewedmistake_old")
-        })
-        .then(async function (data) {
-            for (var i = 0; i < data.length; i++) {
-                var result = await postreq(data[i], "reviewedmistake_old");
-            }
-        })
         .then(function () {
             console.log("reviewedmistake copied to local and reviewedmistake_old");
         })
