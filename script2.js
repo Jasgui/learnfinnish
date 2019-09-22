@@ -29,7 +29,7 @@ buttonInit.onclick = async function () {
 
 buttonDelete.onclick = () => {
     var collectionToDrop = {
-        collection: "reviews"
+        collection: "allitems"
     };
     dropCollection(collectionToDrop);
 };
