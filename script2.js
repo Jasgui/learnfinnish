@@ -61,7 +61,38 @@ buttonStart.onclick = () => {
     fetch(URL_NEW)
         .then(res => res.json())
         .then(data => loc_news = [...data])
+        .then(function () {
+            console.log("new copied to local");
+        })
 
+    fetch(URL_MISTAKE)
+        .then(res => res.json())
+        .then(data => loc_mistakes = [...data])
+        .then(function () {
+            console.log("mistake copied to local");
+        })
+
+    fetch(URL_DONE)
+        .then(res => res.json())
+        .then(data => loc_done = [...data])
+        .then(function () {
+            console.log("done copied to local");
+        })
+
+    fetch(URL_REVIEW)
+        .then(res => res.json())
+        .then(data => loc_reviews = [...data])
+        .then(function () {
+            console.log("review copied to local");
+        })
+
+
+    fetch(URL_REVIEWEDMISTAKE)
+        .then(res => res.json())
+        .then(data => loc_reviewedMistakes = [...data])
+        .then(function () {
+            console.log("reviewedmistake copied to local");
+        })
 
 };
 
