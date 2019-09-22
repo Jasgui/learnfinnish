@@ -928,7 +928,7 @@ var initialData = [
         french: "Elle parle souvent de son frère"
     }, {
         finnish: "Veljen poika pitää paljon pizzasta",
-        french: "Le fils du frère aimes beaucoup la pizza"
+        french: "Le fils du frère aime beaucoup la pizza"
     }, {
         finnish: "Isä ja äiti juovat kahvia puutarhassa",
         french: "Le père et la mère boivent le café dans le jardin"
