@@ -4,16 +4,23 @@ const buttonPost = document.getElementById('buttonPost');
 const buttonGetReview = document.getElementById('buttonGetReview');
 const buttonPostReview = document.getElementById('buttonPostReview');
 const buttonDelete = document.getElementById('buttonDelete');
+const buttonInit = document.getElementById('buttonInit');
 
 
 import {
     postreq,
     getreq,
-    postrev,
-    getrev,
     dropCollection
 } from '/functions.js';
 
+import {
+    initialData
+} from '/initdata/init/js';
+
+
+buttonInit.onclick = () => {
+
+};
 
 buttonDelete.onclick = () => {
     var collectionToDrop = {
@@ -27,7 +34,7 @@ buttonPostReview.onclick = () => {
         finnish: "kiitos",
         french: "merci"
     };
-    postrev(item);
+    postreq(item, "review");
 };
 
 buttonPost.onclick = () => {
@@ -37,18 +44,18 @@ buttonPost.onclick = () => {
         french: "bonjour !"
     };
 
-    postreq(item);
+    postreq(item, "all");
 
 };
 
 buttonGetReview.onclick = () => {
 
-    getrev();
+    getreq("review");
 
 }
 
 button.onclick = () => {
 
-    getreq();
+    getreq("all");
 
 };
