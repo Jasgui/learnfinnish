@@ -68,7 +68,7 @@ buttonStart.onclick = () => {
         .then(data => loc_news = [...data])
         .then(function () {
             console.log("new copied to local and new_old");
-
+            localStorage.setItem('new', JSON.stringify(loc_news));
         })
 
     fetch(URL_MISTAKE)
@@ -76,6 +76,8 @@ buttonStart.onclick = () => {
         .then(data => loc_mistakes = [...data])
         .then(function () {
             console.log("mistake copied to local and mistake_old");
+            localStorage.setItem('mistake', JSON.stringify(loc_mistakes));
+
         })
 
     fetch(URL_DONE)
@@ -83,6 +85,8 @@ buttonStart.onclick = () => {
         .then(data => loc_done = [...data])
         .then(function () {
             console.log("done copied to local and done_old");
+            localStorage.setItem('done', JSON.stringify(loc_done));
+
         })
 
     fetch(URL_REVIEW)
@@ -90,6 +94,8 @@ buttonStart.onclick = () => {
         .then(data => loc_reviews = [...data])
         .then(function () {
             console.log("review copied to local and review_old");
+            localStorage.setItem('review', JSON.stringify(loc_reviews));
+
         })
 
 
@@ -98,6 +104,8 @@ buttonStart.onclick = () => {
         .then(data => loc_reviewedMistakes = [...data])
         .then(function () {
             console.log("reviewedmistake copied to local and reviewedmistake_old");
+            localStorage.setItem('reviewedmistake', JSON.stringify(loc_reviewedMistakes));
+
         })
 
 
