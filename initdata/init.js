@@ -935,3 +935,7 @@ var initialData = [
     }
 
 ];
+
+export {
+    initialData
+};
