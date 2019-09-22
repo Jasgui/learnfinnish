@@ -3,14 +3,21 @@ const textcheck = document.getElementById('textcheck');
 const buttonPost = document.getElementById('buttonPost');
 const buttonGetReview = document.getElementById('buttonGetReview');
 const buttonPostReview = document.getElementById('buttonPostReview');
+const buttonRename = document.getElementById('buttonRename');
+
 
 import {
     postreq,
     getreq,
     postrev,
-    getrev
+    getrev,
+    rename
 } from '/functions.js';
 
+
+buttonRename.onclick = () => {
+    rename();
+};
 
 buttonPostReview.onclick = () => {
     var item = {

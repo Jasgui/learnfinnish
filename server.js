@@ -59,6 +59,11 @@ app.post('/review', function (req, res) {
     });
 });
 
+app.post('/rename', function (req, res) {
+    db.reviews.renameCollection("reviews_old");
+    console.log("renamed");
+    res.send("renamed");
+})
 
 app.get('/all', function (req, res) {
     Allitem.find({}, function (err, items) {

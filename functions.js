@@ -50,11 +50,21 @@ var getrev = () => {
         .then((data) => console.log(data))
 };
 
+var rename = () => {
+    const url = "http://learnfinnish.xyz:3000/rename";
+    let fetchData = {
+        method = 'POST'
+    };
+    fetch(url, fetchData)
+        .then console.log("done");
+}
+
 
 
 export {
     postreq,
     getreq,
     getrev,
-    postrev
+    postrev,
+    rename
 };
