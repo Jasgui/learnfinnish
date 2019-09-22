@@ -11,9 +11,9 @@ var db = mongoose.connection;
 var Allitem = require('./model/allitem');
 var Done = require('./model/done');
 var Mistake = require('./model/mistake');
-var Newphrase = require('./newphrase');
-var Review = require('./review');
-var Reviewedmistake = require('./reviewedmistake');
+var Newphrase = require('./model/newphrase');
+var Review = require('./model/review');
+var Reviewedmistake = require('./model/reviewedmistake');
 
 
 app.use(bodyParser.json());
