@@ -64,7 +64,7 @@ app.get('/all', function (req, res) {
     Allitem.find({}, function (err, items) {
         if (err) {
             res.status(500).send({
-                error: "Could not fetch items"
+                error: "Could not fetch items from all"
             });
         } else {
             res.send(items);
@@ -72,6 +72,17 @@ app.get('/all', function (req, res) {
     });
 });
 
+app.get('/review', function (req, res) {
+    Review.find({}, function (err, items) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch items from review"
+            });
+        } else {
+            res.send(items);
+        }
+    });
+});
 
 app.listen(3000, function () {
     console.log("API is running on port 3000");
