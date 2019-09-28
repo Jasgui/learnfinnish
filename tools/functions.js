@@ -98,7 +98,6 @@ var getListIds = () => {
             }
         })
     return idList;
-    console.log(idList);
 
 };
 
