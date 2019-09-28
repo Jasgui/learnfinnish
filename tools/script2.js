@@ -49,13 +49,12 @@ btnFetchList.onclick = () => {
     getreq("/list");
 };
 
-btnAddItemToList.onclick = () => {
-    var item = {
-        itemId:
-    }
-    postreq(item, "/list/additem");
-}
-
+//btnAddItemToList.onclick = () => {
+//    var item = {
+//        itemId:
+//    }
+//    postreq(item, "/list/additem");
+//}
 
 
 
