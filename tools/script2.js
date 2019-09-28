@@ -41,7 +41,7 @@ btnInit1.onclick = async function () {
     //Add the initial dataset
     for (var i = 0; i < initialData.length; i++) {
 
-        var result = await postreq(initialData[i], "all");
+        var result = await postreq(initialData[i], "item");
     }
 
 };
@@ -68,7 +68,7 @@ btnInit2.onclick = () => {
 
 buttonPrep.onclick = () => {
 
-    const url = "http://learnfinnish.xyz:3000/all";
+    const url = "http://learnfinnish.xyz:3000/item";
     fetch(url)
         .then(res => res.json())
         .then(async function (data) {
@@ -138,7 +138,7 @@ buttonInit.onclick = async function () {
 
     for (var i = 0; i < initialData.length; i++) {
 
-        var result = await postreq(initialData[i], "all");
+        var result = await postreq(initialData[i], "item");
     }
 
 };
