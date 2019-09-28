@@ -1,4 +1,4 @@
-var postreq = (data, place) => {
+var postreq = async function (data, place) {
 
     const url = "http://learnfinnish.xyz:3000/" + place;
 
