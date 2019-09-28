@@ -92,8 +92,9 @@ btnInit3.onclick = () => {
                         })
                     })
                     .then(function (data) {
-                        console.log(i);
-                        console.log(res.length);
+                        if (i === res.length) {
+                            console.log("donnnnne");
+                        }
                     })
             }
         })
