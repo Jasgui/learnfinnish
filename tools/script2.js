@@ -46,7 +46,7 @@ buttonCheck.onclick = () => {
 }
 
 btnFetchList.onclick = () => {
-    getreq("/list");
+    getreq("list");
 };
 
 //btnAddItemToList.onclick = () => {
