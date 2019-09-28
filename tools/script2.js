@@ -82,6 +82,7 @@ btnInit3.onclick = () => {
         .then(async function (res) {
             for (var i = 0; i < res.length; i++) {
                 var result = await addItem(res[i]._id, idLists.learn);
+                console.log(res[i._id]);
                 console.log(i);
             }
         })
