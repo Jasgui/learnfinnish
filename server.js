@@ -158,7 +158,14 @@ app.get('/lesson', function (req, res) {
                     console.log("Issues with determining number of items in lists");
                 }
             }
-            var result = [learnNum, reviewNum, mistakeNum];
+
+            var total = learnNum + reviewNum + mistakeNum;
+            var learnPerc = learnNum / total;
+            var reviewPerc = reviewNum / total;
+            var mistakePerc = mistakeNum / total;
+
+
+            var result = [learnPerc, reviewPerc, mistakePerc];
             res.send(result);
         }
     })
