@@ -68,6 +68,33 @@ app.put('/list/additem', function (req, res) {
 
 });
 
+app.put('list/removeitem', function (req, res) {
+    Allitem.findOne({
+        _id: req.body.itemId
+    }, function (err, item) {
+        if (err) {
+            res.status(500).send({
+                error: "could not find the item"
+            });
+        } else {
+            List.update({
+                _id: req.body.listId
+            }, {
+                $pull: {
+                    items: item._id
+                }
+            }, function (err, list) {
+                if (err) {
+                    res.status(500).send({
+                        error: "Could not remove the item from the list"
+                    });
+                } else {
+                    res.send(list);
+                }
+            })
+        }
+    })
+});
 
 
 
