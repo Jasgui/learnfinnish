@@ -95,6 +95,9 @@ btnInit3.onclick = () => {
                     })
             }
         })
+        .then(function (res) {
+            console.log("all done");
+        })
 };
 
 
