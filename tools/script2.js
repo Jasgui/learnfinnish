@@ -80,7 +80,7 @@ btnInit3.onclick = () => {
         .then(function (res) {
             for (var i = 0; i < res.length; i++) {
                 console.log(i);
-                fetch("http://learnfinnish.xyz:3000/item", {
+                fetch("http://learnfinnish.xyz:3000/additem", {
                         method: 'PUT',
                         headers: {
                             'Accept': 'application/json, text/plain, */*',
