@@ -37,6 +37,10 @@ import {
 var idLists = getListIds();
 console.log(idLists);
 
+var test = getreq("all");
+console.log(test);
+
+
 btnInit1.onclick = async function () {
     //Add the initial dataset
     for (var i = 0; i < initialData.length; i++) {
@@ -58,11 +62,22 @@ btnInit2.onclick = () => {
     postreq({
         title: "mistake"
     }, "list");
+    postreq({
+        title: "lesson"
+    }, "list");
+
 
     console.log("lists created");
 
 };
 
+
+btnInit3.onclick = async function () {
+
+    getreq("item");
+
+
+}
 
 
 
