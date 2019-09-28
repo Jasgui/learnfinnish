@@ -37,7 +37,7 @@ import {
 var idLists = getListIds();
 console.log(idLists);
 
-var test = getreq("all");
+var test = getreq("item");
 console.log(test);
 
 
