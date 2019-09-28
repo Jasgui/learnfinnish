@@ -169,9 +169,37 @@ app.get('/lesson', function (req, res) {
             var mistakeLesson = Math.floor(QUESTIONS_PER_LESSON * mistakePerc);
             var learnLesson = QUESTIONS_PER_LESSON - (reviewLesson + mistakeLesson);
 
+            var lessonMatrix = [];
+            var learnIndex = Math.floor(learnLesson / 4);
+            var reviewIndex = Math.floor(reviewLesson / 4);
+            var mistakeIndex = Math.floor(mistakeLesson / 4);
 
+            var learnTotalAllow = learnLesson;
+            var reviewTotalAllow = reviewLesson;
+            var mistakeTotalAllow = mistakeLesson;
 
-            var result = [learnLesson, reviewLesson, mistakeLesson];
+            for (let d = 0; d < (QUESTIONS_PER_LESSON / 4) + 1; d++) {
+
+                for (let a = 0; a < learnIndex; a++) {
+                    if (learnTotalAllow > 0) {
+                        lessonMatrix.push("learn");
+                        learnTotalAllow--;
+                    }
+                }
+                for (let b = 0; b < reviewIndex; b++) {
+                    if (reviewTotalAllow > 0) {
+                        lessonMatrix.push("review");
+                        reviewTotalAllow--;
+                    }
+                }
+                for (let c = 0; c < mistakeTotalAllow; c++) {
+                    if (mistakeTotalAllow > 0) {
+                        lessonMatrix.push("mistake");
+                        mistakeTotalAllow--;
+                    }
+                }
+            }
+            var result = lessonMatrix;
             res.send(result);
         }
     })
