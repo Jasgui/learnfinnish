@@ -91,15 +91,13 @@ btnInit3.onclick = () => {
                             listId: idLists.learn
                         })
                     })
-                    .then(function (res) {
+                    .then(function (data) {
                         console.log(i);
                         console.log(res.length);
                     })
             }
         })
-        .then(function (res) {
-            console.log("all done");
-        })
+
 };
 
 
