@@ -96,9 +96,10 @@ var getListIds = () => {
                     console.log("not found");
                 }
             }
-            return idList;
-            console.log(idList);
         })
+    return idList;
+    console.log(idList);
+
 };
 
 
