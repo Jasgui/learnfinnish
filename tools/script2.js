@@ -83,7 +83,14 @@ btnInit3.onclick = async function () {
             }
         })
         .then(function () {
-
+            let fetchData = {
+                method: 'PUT',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                }
+            };
+            fetch("http://learnfinnish.xyz:3000/populate", fetchData);
         })
 
 };
