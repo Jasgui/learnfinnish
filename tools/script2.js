@@ -76,20 +76,25 @@ btnInit3.onclick = () => {
     const url = "http://learnfinnish.xyz:3000/item";
 
     fetch(url)
-    .then (res => {
-        if(res.ok) return res.json();
-        
-    })
-    .then (async function addData (data){
-        for(let i = 0; i < data.length; i++){
-            addItem(data[i]._id, idLists.learn);
-            
-        }
-        return true;
-    })
-    .then (function(){
-        console.log("done");
-    })
+        .then(res => {
+            if (res.ok) return res.json();
+
+        })
+        .then(async function addData(data) {
+            for (let i = 0; i < data.length; i++) {
+                addItem(data[i]._id, idLists.learn);
+
+            }
+
+
+        })
+        .then(function () {
+            Promise.all(addData).then(function () {
+                console.log("done");
+            })
+        })
+
+
 };
 
 //
