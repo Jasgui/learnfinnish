@@ -8,6 +8,8 @@ const buttonInit = document.getElementById('buttonInit');
 const buttonPrep = document.getElementById('buttonPrep');
 const buttonStart = document.getElementById('buttonStart');
 const buttonCheck = document.getElementById('buttonCheck');
+const btnFetchList = document.getElementById('btnFetchList');
+const btnAddItemToList = document.getElementById('btnAddItemToList');
 
 var loc_all = [];
 var loc_news = [];
@@ -42,6 +44,19 @@ buttonCheck.onclick = () => {
     console.log(loc_reviews);
 
 }
+
+btnFetchList.onclick = () => {
+    getreq("/list");
+};
+
+btnAddItemToList.onclick = () => {
+    var item = {
+        itemId:
+    }
+    postreq(item, "/list/additem");
+}
+
+
 
 
 buttonPrep.onclick = () => {
