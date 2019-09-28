@@ -115,11 +115,11 @@ app.post('/drop', function (req, res) {
 
 });
 
-app.get('/all', function (req, res) {
+app.get('/item', function (req, res) {
     Item.find({}, function (err, items) {
         if (err) {
             res.status(500).send({
-                error: "Could not fetch items from all"
+                error: "Could not fetch items from item"
             });
         } else {
             res.send(items);
