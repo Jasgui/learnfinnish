@@ -69,22 +69,6 @@ app.put('/list/additem', function (res, res) {
 });
 
 
-app.get('/list'),
-    function (req, res) {
-        List.find({}).populate({
-            path: 'items',
-            model: 'Allitem'
-        }).exec(function (err, list) {
-            if (err) {
-                res.status(500).send({
-                    error: "Could not fetch the list"
-                });
-            } else {
-                res.send(list);
-            }
-        })
-    };
-
 
 
 
@@ -329,6 +313,25 @@ app.get('/mistake', function (req, res) {
         }
     });
 });
+
+app.get('/list', function (req, res) {
+    List.find({}).populate({
+        path: 'items',
+        model: 'Allitems'
+    }).exec(function (err, list) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch the list"
+            });
+        } else {
+            res.send(list);
+        }
+    })
+});
+
+
+
+
 
 app.get('/reviewedmistake', function (req, res) {
     Reviewedmistake.find({}, function (err, items) {
