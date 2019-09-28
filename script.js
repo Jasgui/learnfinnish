@@ -21,9 +21,7 @@ startbtn.onclick = () => {
 
 
 
-var testing = JSON.parse(localStorage.getItem('data'));
 
-test(phrases[counter]);
 
 
 
