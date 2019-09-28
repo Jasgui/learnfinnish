@@ -30,7 +30,7 @@ import {
     postreq,
     getreq,
     dropCollection
-} from '/functions.js';
+} from '/tools/functions.js';
 
 import {
     initialData
