@@ -82,7 +82,7 @@ btnInit3.onclick = () => {
         .then(function (res) {
             for (var i = 0; i < res.length; i++) {
                 var result = addItem(res[i]._id, idLists.learn);
-                Promise.all(result).then(console.log(i))
+
             }
         })
 };
