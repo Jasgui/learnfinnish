@@ -12,6 +12,11 @@ import {
 startbtn.onclick = () => {
 
 
+    const url = "http://learnfinnish.xyz:3000/lesson";
+    fetch(url)
+        .then((res) => res.json())
+        .then((data) => console.log(data))
+
 }
 
 
