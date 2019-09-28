@@ -313,18 +313,7 @@ app.get('/mistake', function (req, res) {
         }
     });
 });
-//
-//app.get('/list', function (req, res) {
-//    List.find({}, function (err, items) {
-//        if (err) {
-//            res.status(500).send({
-//                error: "Could not fetch items from review"
-//            });
-//        } else {
-//            res.send(items);
-//        }
-//    });
-//});
+
 
 
 
