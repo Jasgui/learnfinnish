@@ -91,7 +91,9 @@ btnInit3.onclick = () => {
                             listId: idLists.learn
                         })
                     }
-                    .then(res => console.log("items added"))
+                    .then(res => {
+                        console.log("items added");
+                    })
             };
         })
 };
