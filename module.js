@@ -1,6 +1,5 @@
 var test = (phrase) => {
-    question.innerHTML = phrase.translation;
-    console.log(phrase.translation);
+    question.innerHTML = phrase.french;
     answer.value = "";
     correction.innerHTML = "";
 

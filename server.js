@@ -25,6 +25,9 @@ app.all('/*', function (req, res, next) {
     next();
 });
 
+
+
+
 app.put('/list/additem', function (req, res) {
     Item.findOne({
         _id: req.body.itemId
@@ -128,6 +131,37 @@ app.post('/drop', function (req, res) {
         }
     });
 
+});
+
+app.get('/lesson', function (req, res) {
+    List.find({}).populate({
+        path: 'items',
+        model: 'Item'
+    }).exec(function (err, list) {
+        if (err) {
+            res.status(500).send({
+                error: "Could fetch the list"
+            });
+        } else {
+            var learnNum = 0;
+            var reviewNum = 0;
+            var mistakeNum = 0;
+
+            for (let i = 0; i < list.length; i++) {
+                if (list[i].title === "learn") {
+                    learnNum = list[i].items.length;
+                } else if (list[i].title === "review") {
+                    reviewNum = list[i].items.length;
+                } else if (list[i].title === "mistake") {
+                    mistakeNum = list[i].items.length;
+                } else {
+                    console.log("Issues with determining number of items in lists");
+                }
+            }
+            var result = [learnNum, reviewNum, mistakeNum];
+            res.send(result);
+        }
+    })
 });
 
 app.get('/item', function (req, res) {

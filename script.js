@@ -2,21 +2,17 @@ const question = document.getElementById('question');
 const answer = document.getElementById('answer');
 const correction = document.getElementById('correction');
 const enterButton = document.getElementById('enterButton');
-const endButton = document.getElementById('endButton');
+const startbtn = document.getElementById('startbtn');
 
 import {
     test,
     normalise
 } from '/module.js';
 
-var news = [];
-var mistakes = [];
-var reviews = [];
-var counter = 0;
-var news_counter = 0;
-var mistakes_counter = 0;
-var reviews_counter = 0;
+startbtn.onclick = () => {
 
+
+}
 
 
 
