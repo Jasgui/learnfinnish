@@ -51,7 +51,7 @@ app.put('/list/additem', function (req, res) {
                 _id: req.body.listId
             }, {
                 $addToSet: {
-                    items: allitem._id
+                    items: item._id
                 }
             }, function (err, list) {
                 if (err) {
