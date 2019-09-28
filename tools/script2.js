@@ -72,21 +72,39 @@ btnInit2.onclick = () => {
 };
 
 
-
-
-
 btnInit3.onclick = () => {
     const url = "http://learnfinnish.xyz:3000/item";
+
     fetch(url)
-        .then(res => res.json())
-        .then(async function (res) {
-            for (var i = 0; i < res.length; i++) {
-                var result = await addItem(res[i]._id, idLists.learn);
-                console.log(res[i._id]);
-                console.log(i);
-            }
-        })
+    .then (res => {
+        if(res.ok) return res.json();
+        
+    })
+    .then (async function addData (data){
+        for(let i = 0; i < data.length; i++){
+            addItem(data[i]._id, idLists.learn);
+            
+        }
+        return true;
+    })
+    .then (function(){
+        console.log("done");
+    })
 };
+
+//
+//btnInit3.onclick = () => {
+//    const url = "http://learnfinnish.xyz:3000/item";
+//    fetch(url)
+//        .then(res => res.json())
+//        .then(async function (res) {
+//            for (var i = 0; i < res.length; i++) {
+//                var result = await addItem(res[i]._id, idLists.learn);
+//                console.log(res[i._id]);
+//                console.log(i);
+//            }
+//        })
+//};
 
 
 
