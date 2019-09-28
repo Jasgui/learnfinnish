@@ -81,19 +81,18 @@ btnInit3.onclick = async function () {
             for (var i = 0; i < res.length; i++) {
                 addItem(res[i]._id, idLists.learn);
             }
-        })
-        .then(res => console.log("items added"))
-        .then(function () {
+
+            console.log("items added");
+
             let fetchData = {
                 method: 'PUT',
                 headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
+                    'Accept': 'application/json, text/plan, */*',
+                    'COntent-Type': 'application/json'
                 }
             };
             fetch("http://learnfinnish.xyz:3000/populate", fetchData);
         })
-        .then(console.log("populated"))
 };
 
 
