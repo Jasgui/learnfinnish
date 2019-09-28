@@ -45,141 +45,137 @@ btnInit1.onclick = async function () {
 
 };
 
-btnInit3.onclick = () => {
-        //Add items to the learn list
 
-        const url = "http://learnfinnish.xyz:3000/all";;
+btnInit2.onclick = () => {
+    //Create the lists
+    postreq({
+        title: "learn"
+    }, "list");
+    postreq({
+        title: "review"
+    }, "list");
+    postreq({
+        title: "mistake"
+    }, "list");
 
-        btnInit2.onclick = () => {
-            //Create the lists
-            postreq({
-                title: "learn"
-            }, "list");
-            postreq({
-                title: "review"
-            }, "list");
-            postreq({
-                title: "mistake"
-            }, "list");
+    console.log("lists created");
 
-            console.log("lists created");
-
-        };
+};
 
 
 
 
-        buttonPrep.onclick = () => {
+buttonPrep.onclick = () => {
 
-            const url = "http://learnfinnish.xyz:3000/all";
-            fetch(url)
-                .then(res => res.json())
-                .then(async function (data) {
+    const url = "http://learnfinnish.xyz:3000/all";
+    fetch(url)
+        .then(res => res.json())
+        .then(async function (data) {
 
-                    for (var i = 0; i < data.length; i++) {
+            for (var i = 0; i < data.length; i++) {
 
-                        var result = await postreq(data[i], "new");
+                var result = await postreq(data[i], "new");
 
-                    }
-                })
-
-        };
-
-
-        buttonStart.onclick = () => {
-
-            fetch(URL_NEW)
-                .then(res => res.json())
-                .then(data => loc_news = [...data])
-                .then(function () {
-                    console.log("new copied to local and new_old");
-                    localStorage.setItem('new', JSON.stringify(loc_news));
-                })
-
-            fetch(URL_MISTAKE)
-                .then(res => res.json())
-                .then(data => loc_mistakes = [...data])
-                .then(function () {
-                    console.log("mistake copied to local and mistake_old");
-                    localStorage.setItem('mistake', JSON.stringify(loc_mistakes));
-
-                })
-
-            fetch(URL_DONE)
-                .then(res => res.json())
-                .then(data => loc_done = [...data])
-                .then(function () {
-                    console.log("done copied to local and done_old");
-                    localStorage.setItem('done', JSON.stringify(loc_done));
-
-                })
-
-            fetch(URL_REVIEW)
-                .then(res => res.json())
-                .then(data => loc_reviews = [...data])
-                .then(function () {
-                    console.log("review copied to local and review_old");
-                    localStorage.setItem('review', JSON.stringify(loc_reviews));
-
-                })
-
-
-            fetch(URL_REVIEWEDMISTAKE)
-                .then(res => res.json())
-                .then(data => loc_reviewedMistakes = [...data])
-                .then(function () {
-                    console.log("reviewedmistake copied to local and reviewedmistake_old");
-                    localStorage.setItem('reviewedmistake', JSON.stringify(loc_reviewedMistakes));
-
-                })
-
-
-
-        };
-
-        buttonInit.onclick = async function () {
-
-            for (var i = 0; i < initialData.length; i++) {
-
-                var result = await postreq(initialData[i], "all");
             }
+        })
 
-        };
+};
 
-        buttonDelete.onclick = () => {
-            var collectionToDrop = {
-                collection: "allitems"
-            };
-            dropCollection(collectionToDrop);
-        };
 
-        buttonPostReview.onclick = () => {
-            var item = {
-                finnish: "kiitos",
-                french: "merci"
-            };
-            postreq(item, "review");
-        };
+buttonStart.onclick = () => {
 
-        buttonPost.onclick = () => {
+    fetch(URL_NEW)
+        .then(res => res.json())
+        .then(data => loc_news = [...data])
+        .then(function () {
+            console.log("new copied to local and new_old");
+            localStorage.setItem('new', JSON.stringify(loc_news));
+        })
 
-            var item = {
-                finnish: "hyvää päivää!",
-                french: "bonjour !"
-            };
+    fetch(URL_MISTAKE)
+        .then(res => res.json())
+        .then(data => loc_mistakes = [...data])
+        .then(function () {
+            console.log("mistake copied to local and mistake_old");
+            localStorage.setItem('mistake', JSON.stringify(loc_mistakes));
 
-            postreq(item, "all");
+        })
 
-        };
+    fetch(URL_DONE)
+        .then(res => res.json())
+        .then(data => loc_done = [...data])
+        .then(function () {
+            console.log("done copied to local and done_old");
+            localStorage.setItem('done', JSON.stringify(loc_done));
 
-        buttonGetReview.onclick = () => {
+        })
 
-            getreq("review");
+    fetch(URL_REVIEW)
+        .then(res => res.json())
+        .then(data => loc_reviews = [...data])
+        .then(function () {
+            console.log("review copied to local and review_old");
+            localStorage.setItem('review', JSON.stringify(loc_reviews));
 
-        }
+        })
 
-        button.onclick = () => {
 
-            getreq("all");
+    fetch(URL_REVIEWEDMISTAKE)
+        .then(res => res.json())
+        .then(data => loc_reviewedMistakes = [...data])
+        .then(function () {
+            console.log("reviewedmistake copied to local and reviewedmistake_old");
+            localStorage.setItem('reviewedmistake', JSON.stringify(loc_reviewedMistakes));
 
-        };
+        })
+
+
+
+};
+
+buttonInit.onclick = async function () {
+
+    for (var i = 0; i < initialData.length; i++) {
+
+        var result = await postreq(initialData[i], "all");
+    }
+
+};
+
+buttonDelete.onclick = () => {
+    var collectionToDrop = {
+        collection: "allitems"
+    };
+    dropCollection(collectionToDrop);
+};
+
+buttonPostReview.onclick = () => {
+    var item = {
+        finnish: "kiitos",
+        french: "merci"
+    };
+    postreq(item, "review");
+};
+
+buttonPost.onclick = () => {
+
+    var item = {
+        finnish: "hyvää päivää!",
+        french: "bonjour !"
+    };
+
+    postreq(item, "all");
+
+};
+
+buttonGetReview.onclick = () => {
+
+    getreq("review");
+
+}
+
+button.onclick = () => {
+
+    getreq("all");
+
+};
