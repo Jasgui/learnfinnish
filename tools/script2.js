@@ -72,28 +72,31 @@ btnInit2.onclick = () => {
 };
 
 
-btnInit3.onclick = async function () {
 
+btnInit3.onclick = () => {
     const url = "http://learnfinnish.xyz:3000/item";
+
     fetch(url)
         .then(res => res.json())
         .then(function (res) {
             for (var i = 0; i < res.length; i++) {
-                addItem(res[i]._id, idLists.learn);
-            }
-
-            console.log("items added");
-
-            let fetchData = {
-                method: 'PUT',
-                headers: {
-                    'Accept': 'application/json, text/plan, */*',
-                    'COntent-Type': 'application/json'
-                }
+                fetch("http://learnfinnish.xyz:3000/item"), {
+                        method: 'PUT',
+                        headers: {
+                            'Accept': 'application/json, text/plain, */*',
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            itemId: res[i]._id,
+                            listId: idLists.learn
+                        })
+                    }
+                    .then(console.log("Items added"))
             };
-            fetch("http://learnfinnish.xyz:3000/populate", fetchData);
         })
 };
+
+
 
 
 
