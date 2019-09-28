@@ -45,11 +45,15 @@ var addItem = (itemId, listId) => {
 
 var getreq = (place) => {
 
+    var result = [];
     const url = "http://learnfinnish.xyz:3000/" + place;
     fetch(url)
         .then((res) => res.json())
+        .then(function (res) {
+            result = res;
+        })
 
-    return res;
+    return result;
 };
 
 
