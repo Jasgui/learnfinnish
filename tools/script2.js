@@ -88,11 +88,7 @@ btnInit3.onclick = () => {
 
 
         })
-        .then(function () {
-            Promise.all(addData).then(function () {
-                console.log("done");
-            })
-        })
+
 
 
 };
