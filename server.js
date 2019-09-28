@@ -1,4 +1,4 @@
-const DATABASE = "test";
+const DATABASE = "testing";
 
 var express = require('express');
 var app = express();
