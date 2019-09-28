@@ -68,7 +68,7 @@ app.put('/list/additem', function (req, res) {
 
 });
 
-app.put('list/removeitem', function (req, res) {
+app.put('/list/removeitem', function (req, res) {
     Allitem.findOne({
         _id: req.body.itemId
     }, function (err, item) {
