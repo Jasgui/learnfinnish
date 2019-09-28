@@ -332,6 +332,20 @@ app.get('/list', function (req, res) {
 
 
 
+app.post('/list', function (req, res) {
+    var item = new List();
+    item.title = req.body.title;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
+
 
 app.get('/reviewedmistake', function (req, res) {
     Reviewedmistake.find({}, function (err, items) {
