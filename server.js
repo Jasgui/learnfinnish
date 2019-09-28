@@ -160,6 +160,11 @@ app.get('/lesson', function (req, res) {
                 }
             }
 
+            ///TESTING
+            learnNum = 150;
+            reviewNum = 46;
+            mistakeNum = 37;
+
             var total = learnNum + reviewNum + mistakeNum;
             var learnPerc = learnNum / total;
             var reviewPerc = reviewNum / total;
@@ -171,8 +176,18 @@ app.get('/lesson', function (req, res) {
 
             var lessonMatrix = [];
             var learnIndex = Math.floor(learnLesson / 4);
+            if (learnIndex === 0) {
+                learnIndex = 1
+            };
+
             var reviewIndex = Math.floor(reviewLesson / 4);
+            if (reviewIndex === 0) {
+                reviewIndex = 1
+            };
             var mistakeIndex = Math.floor(mistakeLesson / 4);
+            if (mistakeIndex === 0) {
+                mistakeIndex = 1
+            };
 
             var learnTotalAllow = learnLesson;
             var reviewTotalAllow = reviewLesson;
