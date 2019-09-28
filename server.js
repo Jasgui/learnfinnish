@@ -207,7 +207,7 @@ app.get('/lesson', function (req, res) {
                         reviewTotalAllow--;
                     }
                 }
-                for (let c = 0; c < mistakeTotalAllow; c++) {
+                for (let c = 0; c < mistakeIndex; c++) {
                     if (mistakeTotalAllow > 0) {
                         lessonMatrix.push("mistake");
                         mistakeTotalAllow--;
