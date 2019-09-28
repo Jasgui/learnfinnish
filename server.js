@@ -50,7 +50,7 @@ app.put('/list/additem', function (req, res) {
             List.update({
                 _id: req.body.listId
             }, {
-                $addToSet: {
+                $push: {
                     items: item._id
                 }
             }, function (err, list) {
