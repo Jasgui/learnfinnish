@@ -43,9 +43,6 @@ enterButton.onclick = () => {
     console.log(reviews);
 }
 
-endButton.onclick = () => {
-    localStorage.setItem('data', JSON.stringify(reviews));
-}
 
 
 
