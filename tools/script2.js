@@ -91,7 +91,8 @@ btnInit3.onclick = () => {
                         })
                     })
                     .then(function (res) {
-                        console.log("added!");
+                        console.log(i);
+                        console.log(res.length);
                     })
             }
         })
