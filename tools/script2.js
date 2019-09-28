@@ -62,7 +62,7 @@ btnInit3.onclick = () => {
                 title: "mistake"
             }, "list");
 
-            console.log(lists created);
+            console.log("lists created");
 
         };
 
