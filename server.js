@@ -315,20 +315,32 @@ app.get('/mistake', function (req, res) {
 });
 
 app.get('/list', function (req, res) {
-    List.find({}).populate({
-        path: 'items',
-        model: 'Allitems'
-    }).exec(function (err, list) {
+    List.find({}, function (err, items) {
         if (err) {
             res.status(500).send({
-                error: "Could not fetch the list"
+                error: "Could not fetch items from review"
             });
         } else {
-            res.send(list);
+            res.send(items);
         }
-    })
+    });
 });
 
+
+//app.get('/list', function (req, res) {
+//    List.find({}).populate({
+//        path: 'items',
+//        model: 'Allitems'
+//    }).exec(function (err, list) {
+//        if (err) {
+//            res.status(500).send({
+//                error: "Could not fetch the list"
+//            });
+//        } else {
+//            res.send(list);
+//        }
+//    })
+//});
 
 
 

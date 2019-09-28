@@ -23,6 +23,9 @@ const URL_REVIEW = "http://learnfinnish.xyz:3000/review";
 const URL_DONE = "http://learnfinnish.xyz:3000/done";
 const URL_MISTAKE = "http://learnfinnish.xyz:3000/mistake";
 const URL_REVIEWEDMISTAKE = "http://learnfinnish.xyz:3000/reviewedmistake";
+const ID_REVIEW = "5d8f5defd89b152ef55052a1";
+const ID_MISTAKE = "5d8f5e33d89b152ef55052a2";
+const ID_REVIEWEDMISTAKE = "5d8f5e5cd89b152ef55052a3";
 
 
 
