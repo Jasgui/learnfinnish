@@ -82,6 +82,7 @@ btnInit3.onclick = async function () {
                 addItem(res[i]._id, idLists.learn);
             }
         })
+        .then(res => console.log("items added"))
         .then(function () {
             let fetchData = {
                 method: 'PUT',
@@ -92,7 +93,7 @@ btnInit3.onclick = async function () {
             };
             fetch("http://learnfinnish.xyz:3000/populate", fetchData);
         })
-
+        .then(console.log("populated"))
 };
 
 
