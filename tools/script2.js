@@ -82,6 +82,9 @@ btnInit3.onclick = async function () {
                 addItem(res[i]._id, idLists.learn);
             }
         })
+        .then(function () {
+
+        })
 
 };
 

@@ -83,6 +83,21 @@ app.put('/list/removeitem', function (req, res) {
     })
 });
 
+app.put('/populate', function (req, res) {
+    List.find({}).populate({
+        path: 'items',
+        model: 'Item'
+    }).exec(function (err, list) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not populate the lists"
+            });
+        } else {
+            res.send(list);
+        }
+    })
+})
+
 app.post('/item', function (req, res) {
     var item = new Item();
     item.finnish = req.body.finnish;
