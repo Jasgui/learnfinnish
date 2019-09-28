@@ -145,25 +145,26 @@ app.get('/lesson', function (req, res) {
             });
         } else {
             var learnNum = 0;
+            var learnList = [];
             var reviewNum = 0;
+            var reviewList = [];
             var mistakeNum = 0;
+            var mistakeList = [];
 
             for (let i = 0; i < list.length; i++) {
                 if (list[i].title === "learn") {
                     learnNum = list[i].items.length;
+                    learnList = [...list[i].items];
                 } else if (list[i].title === "review") {
                     reviewNum = list[i].items.length;
+                    reviewList = [...list[i].items];
                 } else if (list[i].title === "mistake") {
                     mistakeNum = list[i].items.length;
+                    mistakeList = [...list[i].items];
                 } else {
                     console.log("Issues with determining number of items in lists");
                 }
             }
-
-            ///TESTING
-            learnNum = 150;
-            reviewNum = 46;
-            mistakeNum = 37;
 
             var total = learnNum + reviewNum + mistakeNum;
             var learnPerc = learnNum / total;
@@ -214,7 +215,27 @@ app.get('/lesson', function (req, res) {
                     }
                 }
             }
-            var result = lessonMatrix;
+
+            var lesson = [];
+            var learnCounter = 0;
+            var reviewCounter = 0;
+            var mistakeCounter = 0;
+
+            for (let x = 0; x < lessonMatrix.length; x++) {
+                if (lessonMatrix[x] === "learn") {
+                    lesson.push(learnList[learnCounter]);
+                    learnCounter++;
+                } else if (lessonMatrix[x] === "review") {
+                    lesson.push(reviewList[reviewCounter]);
+                    reviewCounter++;
+                } else if (lessonMatrix[x] === "mistake") {
+                    lesson.push(mistakeList[mistakeCounter]);
+                    mistakeCounter++;
+                }
+            }
+
+
+            var result = lesson;
             res.send(result);
         }
     })
