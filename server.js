@@ -14,6 +14,7 @@ var Mistake = require('./model/mistake');
 var Newphrase = require('./model/newphrase');
 var Review = require('./model/review');
 var Reviewedmistake = require('./model/reviewedmistake');
+var List = require('./model/list');
 
 var Done_old = require('./model/done_old');
 var Mistake_old = require('./model/mistake_old');
@@ -33,6 +34,58 @@ app.all('/*', function (req, res, next) {
     res.header("Access-Control-Allow-Methods", "POST, GET");
     next();
 });
+
+
+////////////////////////////////////////////////////////////NEW
+
+app.put('/list/additem', function (res, res) {
+    Allitem.findOne({
+        _id: req.body.itemId
+    }, function (err, item) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save the item to the list"
+            });
+        } else {
+            List.update({
+                _id: req.body.listId
+            }, {
+                $addToSet: {
+                    items: allitem._id
+                }
+            }, function (err, list) {
+                if (err) {
+                    res.status(500).send({
+                        error: "Could not save the item to the list"
+                    });
+                } else {
+                    res.send(list);
+                }
+            })
+        }
+    })
+
+
+});
+
+
+app.get('/list'),
+    function (req, res) {
+        List.find({}).populate({
+            path: 'items',
+            model: 'Allitem'
+        }).exec(function (err, list) {
+            if (err) {
+                res.status(500).send({
+                    error: "Could not fetch the list"
+                });
+            } else {
+                res.send(list);
+            }
+        })
+    };
+
+
 
 
 app.post('/all', function (req, res) {
