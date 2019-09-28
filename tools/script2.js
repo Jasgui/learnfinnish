@@ -1,3 +1,8 @@
+const btnInit1 = document.getElementById('btnInit1');
+const btnInit2 = document.getElementById('btnInit2');
+const btnInit3 = document.getElementById('btnInit3');
+
+
 const button = document.getElementById('button');
 const textcheck = document.getElementById('textcheck');
 const buttonPost = document.getElementById('buttonPost');
@@ -11,33 +16,77 @@ const buttonCheck = document.getElementById('buttonCheck');
 const btnFetchList = document.getElementById('btnFetchList');
 const btnAddItemToList = document.getElementById('btnAddItemToList');
 
-var loc_all = [];
-var loc_news = [];
-var loc_reviews = [];
-var loc_mistakes = [];
-var loc_reviewedMistakes = [];
-var loc_done = [];
-
-const URL_NEW = "http://learnfinnish.xyz:3000/new";
-const URL_REVIEW = "http://learnfinnish.xyz:3000/review";
-const URL_DONE = "http://learnfinnish.xyz:3000/done";
-const URL_MISTAKE = "http://learnfinnish.xyz:3000/mistake";
-const URL_REVIEWEDMISTAKE = "http://learnfinnish.xyz:3000/reviewedmistake";
 const ID_REVIEW = "5d8f5defd89b152ef55052a1";
 const ID_MISTAKE = "5d8f5e33d89b152ef55052a2";
 const ID_REVIEWEDMISTAKE = "5d8f5e5cd89b152ef55052a3";
 
 
-
 import {
     postreq,
     getreq,
-    dropCollection
+    dropCollection,
+    addItem
 } from '/tools/functions.js';
 
 import {
     initialData
 } from '/initdata/init.js';
+
+
+var idLists = getListIds();
+console.log(idLists);
+
+btnInit1.onclick = () => {
+    //Add the initial dataset
+    for (var i = 0; i < initialData.length; i++) {
+
+        var result = await postreq(initialData[i], "all");
+    }
+
+};
+
+btnInit3.onclick = () => {
+    //Add items to the learn list
+
+    const url = "http://learnfinnish.xyz:3000/all";
+
+    fetch(url)
+        .then(res => res.json())
+        .then(async function (data) {
+            for (var i = 0; i < data.length; i++) {
+                var result = await addItem()
+            }
+        })
+
+    fetch(url)
+        .then(res => res.json())
+        .then(async function (data) {
+
+            for (var i = 0; i < data.length; i++) {
+
+                var result = await postreq(data[i], "learn");
+
+            }
+        })
+};
+
+btnInit2.onclick = () => {
+    //Create the lists
+    postreq({
+        title: "learn"
+    }, "list");
+    postreq({
+        title: "review"
+    }, "list");
+    postreq({
+        title: "mistake"
+    }, "list");
+
+    console.log(lists created);
+
+};
+
+
 
 buttonCheck.onclick = () => {
     console.log(loc_news);
@@ -51,14 +100,6 @@ buttonCheck.onclick = () => {
 btnFetchList.onclick = () => {
     getreq("list");
 };
-
-//btnAddItemToList.onclick = () => {
-//    var item = {
-//        itemId:
-//    }
-//    postreq(item, "/list/additem");
-//}
-
 
 
 buttonPrep.onclick = () => {
