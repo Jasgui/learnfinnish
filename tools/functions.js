@@ -51,6 +51,7 @@ var getreq = (place) => {
         .then((res) => res.json())
         .then(function (res) {
             result = res;
+            console.log(res);
         })
 
     return result;
