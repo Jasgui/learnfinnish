@@ -1,4 +1,5 @@
 const DATABASE = "testing";
+const QUESTIONS_PER_LESSON = 20;
 
 var express = require('express');
 var app = express();
@@ -164,8 +165,13 @@ app.get('/lesson', function (req, res) {
             var reviewPerc = reviewNum / total;
             var mistakePerc = mistakeNum / total;
 
+            var reviewLesson = Math.floor(QUESTIONS_PER_LESSON * reviewPerc);
+            var mistakeLesson = Math.floor(QUESTIONS_PER_LESSON * mistakePerc);
+            var learnLesson = QUESTIONS_PER_LESSON - (reviewLesson + mistakeLesson);
 
-            var result = [learnPerc, reviewPerc, mistakePerc];
+
+
+            var result = [learnLesson, reviewLesson, mistakeLesson];
             res.send(result);
         }
     })
