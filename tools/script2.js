@@ -84,7 +84,10 @@ btnInit3.onclick = () => {
                         method: 'PUT',
                         headers: {
                             'Accept': 'application/json, text/plain, */*',
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'application/json',
+                            'Access-Control-Allow-Origin': "*",
+                            'Access-Control-Allow-Methods': "POST, GET, PUT"
+
                         },
                         body: JSON.stringify({
                             itemId: res[i]._id,
