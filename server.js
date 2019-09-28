@@ -38,7 +38,7 @@ app.all('/*', function (req, res, next) {
 
 ////////////////////////////////////////////////////////////NEW
 
-app.put('/list/additem', function (res, res) {
+app.put('/list/additem', function (req, res) {
     Allitem.findOne({
         _id: req.body.itemId
     }, function (err, item) {
