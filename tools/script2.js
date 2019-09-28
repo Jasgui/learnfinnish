@@ -79,30 +79,12 @@ btnInit3.onclick = () => {
         .then(res => res.json())
         .then(function (res) {
             for (var i = 0; i < res.length; i++) {
-                console.log(i);
-                fetch("http://learnfinnish.xyz:3000/additem", {
-                        method: 'PUT',
-                        headers: {
-                            'Accept': 'application/json, text/plain, */*',
-                            'Content-Type': 'application/json',
-                            'Access-Control-Allow-Origin': "*",
-                            'Access-Control-Allow-Methods': "POST, GET, PUT"
-
-                        },
-                        body: JSON.stringify({
-                            itemId: res[i]._id,
-                            listId: idLists.learn
-                        })
-                    })
-                    .then(function (data) {
-                        if (i === res.length) {
-                            console.log("donnnnne");
-                        }
-                    })
+                addItem(res[i]._id, idLists.learn);
             }
+            console.log("done");
         })
-
 };
+
 
 
 
