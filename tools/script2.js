@@ -79,10 +79,15 @@ btnInit3.onclick = () => {
     const url = "http://learnfinnish.xyz:3000/item";
     fetch(url)
         .then(res => res.json())
-        .then(function (res) {
+        .then(async function (res) {
             for (var i = 0; i < res.length; i++) {
+<<<<<<< HEAD
                 var result = addItem(res[i]._id, idLists.learn);
 
+=======
+                var result = await addItem(res[i]._id, idLists.learn);
+                console.log(i);
+>>>>>>> parent of a2e8325... Update script2.js
             }
         })
 };
