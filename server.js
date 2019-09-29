@@ -60,19 +60,13 @@ app.put('/list/additem', function (req, res) {
 });
 
 app.put('/item/updatescore', function (req, res) {
-    Item.findOneAndUpdate({
+
+    const itemToUpdate = await Item.find({
         _id: req.body.itemId
-    }, {
-        score: req.body.score
-    }, function (err, item) {
-        if (err) {
-            res.status(500).send({
-                error: "Could not update document"
-            })
-        } else {
-            res.send(item);
-        }
-    })
+    });
+    itemToUpdate.score = 4;
+    await itemToUpdate.save();
+
 });
 
 
