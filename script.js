@@ -55,6 +55,9 @@ var endOfSession = () => {
     console.log(EOSRemoveFromMistake);
     console.log(EOSAddToReview);
     console.log(EOSAddToMistake);
+
+
+
 }
 
 enterButton.onclick = () => {

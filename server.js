@@ -59,6 +59,25 @@ app.put('/list/additem', function (req, res) {
 
 });
 
+app.put('/item/updatescore', function (req, res) {
+    Item.finOneAndUpdate({
+        _id: req.body.itemId
+    }, {
+        $set: {
+            score: req.body.score
+        }
+    }, function (err, item) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not update document"
+            })
+        } else {
+            res.send(item);
+        }
+    })
+});
+
+
 app.put('/list/removeitem', function (req, res) {
     Item.findOne({
         _id: req.body.itemId
