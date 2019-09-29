@@ -54,6 +54,14 @@ console.log(idList);
 
 startbtn.onclick = () => {
 
+    lessonContent = [];
+    EOSRemoveFromLearn = [];
+    EOSRemoveFromReview = [];
+    EOSRemoveFromMistake = [];
+    EOSAddToReview = [];
+    EOSAddToMistake = [];
+    counter = 0;
+
 
     const url = "http://learnfinnish.xyz:3000/lesson";
     fetch(url)
