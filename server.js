@@ -1,4 +1,4 @@
-const DATABASE = "testing4";
+const DATABASE = "testing5";
 const QUESTIONS_PER_LESSON = 20;
 
 var express = require('express');
