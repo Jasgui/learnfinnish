@@ -91,23 +91,23 @@ var endOfSession = () => {
     }
 
     for (let i = 0; i < EOSRemoveFromLearn.length; i++) {
-        removeItem(EOSRemoveFromLearn[i]._id, idLists.learn);
+        removeItem(EOSRemoveFromLearn[i]._id, idList.learn);
     }
 
     for (let i = 0; i < EOSRemoveFromReview.length; i++) {
-        removeItem(EOSRemoveFromReview[i]._id, idLists.review);
+        removeItem(EOSRemoveFromReview[i]._id, idList.review);
     }
 
     for (let i = 0; i < EOSRemoveFromMistake.length; i++) {
-        removeItem(EOSRemoveFromMistake[i]._id, idLists.mistake);
+        removeItem(EOSRemoveFromMistake[i]._id, idList.mistake);
     }
 
     for (let i = 0; i < EOSAddToReview.length; i++) {
-        addItem(EOSAddToReview[i]._id, idLists.review);
+        addItem(EOSAddToReview[i]._id, idList.review);
     }
 
     for (let i = 0; i < EOSAddToMistake.length; i++) {
-        addItem(EOSAddToMistake[i]._id, idLists.mistake);
+        addItem(EOSAddToMistake[i]._id, idList.mistake);
     }
 
 
