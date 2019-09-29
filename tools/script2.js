@@ -43,7 +43,7 @@ console.log(test);
 
 
 
-btnInit1.onclick = function () {
+btnInit1.onclick = async function () {
     //Add the initial dataset
     for (var i = 0; i < initialData.length; i++) {
 
