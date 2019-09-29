@@ -42,7 +42,7 @@ var test = (content) => {
 };
 
 
-function endOfSession = () => {
+var endOfSession = () => {
     console.log("End of session");
     console.log(EOSRemoveFromLearn);
     console.log(EOSRemoveFromReview);
