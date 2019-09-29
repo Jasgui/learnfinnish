@@ -59,7 +59,7 @@ app.put('/list/additem', function (req, res) {
 
 });
 
-app.put('/item/updatescore', function (req, res) {
+app.put('/item/updatescore', async function (req, res) {
 
     const itemToUpdate = await Item.find({
         _id: req.body.itemId
