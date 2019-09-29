@@ -14,8 +14,15 @@ var EOSAddToMistake = [];
 
 
 import {
-    normalise
+    normalise,
+    updateScore,
+    removeItem,
+    getListIds,
+    addItem
 } from '/module.js';
+
+var idLists = getListIds();
+
 
 startbtn.onclick = () => {
 
@@ -35,11 +42,6 @@ startbtn.onclick = () => {
 
 var test = (content) => {
 
-    console.log(EOSRemoveFromLearn);
-    console.log(EOSRemoveFromReview);
-    console.log(EOSRemoveFromMistake);
-    console.log(EOSAddToReview);
-    console.log(EOSAddToMistake);
 
     question.innerHTML = content.french;
     answer.value = "";
@@ -55,6 +57,31 @@ var endOfSession = () => {
     console.log(EOSRemoveFromMistake);
     console.log(EOSAddToReview);
     console.log(EOSAddToMistake);
+
+    for (let i = 0; i < lessonContent.length; i++) {
+        updateScore(lessonContent[i]._id, lessonContent[i].score);
+    }
+
+    for (let i = 0; i < EOSRemoveFromLearn, i++) {
+        removeItem(EOSRemoveFromLearn[i]._id, idLists.learn);
+    }
+
+    for (let i = 0; i < EOSRemoveFromReview, i++) {
+        removeItem(EOSRemoveFromReview[i]._id, idLists.review);
+    }
+
+    for (let i = 0; i < EOSRemoveFromMistake, i++) {
+        removeItem(EOSRemoveFromMistake[i]._id, idLists.mistake);
+    }
+
+    for (let i = 0; i < EOSAddToReview, i++) {
+        addItem(EOSAddToReview[i]._id, idLists.review);
+    }
+
+    for (let i = 0; i < EOSAddToMistake, i++) {
+        addItem(EOSAddToMistake[i]._id, idLists.mistake);
+    }
+
 
 
 
