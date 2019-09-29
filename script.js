@@ -4,6 +4,8 @@ const correction = document.getElementById('correction');
 const enterButton = document.getElementById('enterButton');
 const startbtn = document.getElementById('startbtn');
 
+var lessonContent = [];
+
 import {
     test,
     normalise
@@ -15,7 +17,14 @@ startbtn.onclick = () => {
     const url = "http://learnfinnish.xyz:3000/lesson";
     fetch(url)
         .then((res) => res.json())
-        .then((data) => console.log(data))
+        .then(function (data) {
+            lessonContent = [...data];
+
+            for (let i = 0; i < lessonContent.length; i++) {
+                test(lessonContent[i]);
+            }
+
+        })
 
 }
 
