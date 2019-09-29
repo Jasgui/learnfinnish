@@ -59,12 +59,12 @@ app.put('/list/additem', function (req, res) {
 
 });
 
-app.put('/item/updatescore', function (req, res) {
+app.put('/item/updatescore', async function (req, res) {
 
     let itemId = req.body.itemId;
     let newScore = req.body.score;
 
-    Item.updateOne({
+    await Item.updateOne({
         _id: itemId
     }, {
         score: newScore
