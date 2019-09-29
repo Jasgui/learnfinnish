@@ -60,7 +60,7 @@ app.put('/list/additem', function (req, res) {
 });
 
 app.put('/item/updatescore', function (req, res) {
-    Item.finOneAndUpdate({
+    Item.findOneAndUpdate({
         _id: req.body.itemId
     }, {
         $set: {
