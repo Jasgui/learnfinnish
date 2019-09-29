@@ -1,21 +1,44 @@
-var postreq = (data, place) => {
+function postreq(data, place) {
+    return new Promise(function (resolve, reject) {
 
-    const url = "http://learnfinnish.xyz:3000/" + place;
+        const url = "http://learnfinnish.xyz:3000/" + place;
 
-    let fetchData = {
-        method: 'POST',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    };
+        let fetchData = {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        };
 
-    fetch(url, fetchData)
-        .then(res => res.json())
-        .then(res => console.log(res))
+        fetch(url, fetchData)
+            .then(res => res.json())
+            .then(res => resolve("done"))
 
-};
+    })
+}
+
+
+
+//function postreq(data, place, ) {
+//
+//    const url = "http://learnfinnish.xyz:3000/" + place;
+//
+//    let fetchData = {
+//        method: 'POST',
+//        headers: {
+//            'Accept': 'application/json, text/plain, */*',
+//            'Content-Type': 'application/json'
+//        },
+//        body: JSON.stringify(data)
+//    };
+//
+//    fetch(url, fetchData)
+//        .then(res => res.json())
+//        .then(res => resolve())
+//
+//};
 
 
 var addItem = (itemId, listId) => {
