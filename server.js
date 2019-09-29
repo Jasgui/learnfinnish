@@ -69,7 +69,7 @@ app.put('/item/updatescore', async function (req, res) {
     });
 
     itemToUpdate.score = newScore;
-    await itemToUpdate.save(function (err, savedItem) {
+    itemToUpdate.save(function (err, savedItem) {
         if (err) {
             res.status(500).send({
                 error: "Could not update the item"
