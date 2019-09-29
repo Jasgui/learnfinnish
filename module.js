@@ -37,6 +37,8 @@ var updateScore = (itemId, newScore) => {
 };
 
 var removeItem = (itemId, listId) => {
+    let message = "Trying to remove item " + itemId + " from list " + listId;
+    console.log(message);
     const url = "http://learnfinnish.xyz:3000/list/removeitem";
 
     let data = {

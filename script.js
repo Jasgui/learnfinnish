@@ -1,3 +1,4 @@
+const DELAY_WRONG_ANSWER = 10;
 const question = document.getElementById('question');
 const answer = document.getElementById('answer');
 const correction = document.getElementById('correction');
@@ -165,7 +166,7 @@ enterButton.onclick = () => {
         } else {
             setTimeout(function () {
                 test(lessonContent[counter])
-            }, 5000);
+            }, DELAY_WRONG_ANSWER);
         }
 
     }
