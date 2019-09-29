@@ -63,9 +63,7 @@ app.put('/item/updatescore', function (req, res) {
     Item.findOneAndUpdate({
         _id: req.body.itemId
     }, {
-        $set: {
-            score: req.body.score
-        }
+        score: req.body.score
     }, function (err, item) {
         if (err) {
             res.status(500).send({
