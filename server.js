@@ -64,9 +64,8 @@ app.put('/item/updatescore', async function (req, res) {
     const itemToUpdate = await Item.find({
         _id: req.body.itemId
     });
-    itemToUpdate.score = 4;
-    await itemToUpdate.save();
 
+    res.send(itemToUpdate);
 });
 
 
