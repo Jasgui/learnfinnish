@@ -68,7 +68,7 @@ app.put('/item/updatescore', async function (req, res) {
         _id: itemId
     });
 
-    res.send(itemToUpdate);
+    res.send(itemId);
 });
 
 
