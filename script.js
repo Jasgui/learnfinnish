@@ -33,7 +33,7 @@ startbtn.onclick = () => {
 }
 
 
-function test = (content) => {
+var test = (content) => {
 
     question.innerHTML = content.french;
     answer.value = "";
