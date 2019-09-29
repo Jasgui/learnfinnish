@@ -21,7 +21,34 @@ import {
     addItem
 } from '/module.js';
 
-var idLists = getListIds();
+
+
+var idList = {
+    learn: "",
+    review: "",
+    mistake: ""
+};
+const url = "http://learnfinnish.xyz:3000/list";
+fetch(url)
+    .then(res => res.json())
+    .then(function (res) {
+        for (var i = 0; i < res.length; i++) {
+            if (res[i].title === "learn") {
+                idList.learn = res[i]._id;
+            } else if (res[i].title === "review") {
+                idList.review = res[i]._id;
+            } else if (res[i].title === "mistake") {
+                idList.mistake = res[i]._id;
+
+            } else {
+                console.log("not found");
+            }
+        }
+    })
+console.log(idList);
+
+
+
 
 
 startbtn.onclick = () => {
