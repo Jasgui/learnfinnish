@@ -59,26 +59,16 @@ app.put('/list/additem', function (req, res) {
 
 });
 
-app.put('/item/updatescore', function (req, res) {
+app.put('/item/updatescore', async function (req, res) {
 
     let itemId = req.body.itemId;
     let newScore = req.body.score;
 
-    const itemToUpdate = Item.find({
+    await Item.updateOne({
         _id: itemId
+    }, {
+        score: newScore
     });
-
-    itemToUpdate.score = newScore;
-    itemToUpdate.save(function (err, savedItem) {
-        if (err) {
-            res.status(500).send({
-                error: "Could not update the item"
-            })
-        } else {
-            res.send(savedItem);
-        }
-    });
-
 });
 
 
