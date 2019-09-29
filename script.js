@@ -35,6 +35,12 @@ startbtn.onclick = () => {
 
 var test = (content) => {
 
+    console.log(EOSRemoveFromLearn);
+    console.log(EOSRemoveFromReview);
+    console.log(EOSRemoveFromMistake);
+    console.log(EOSAddToReview);
+    console.log(EOSAddToMistake);
+
     question.innerHTML = content.french;
     answer.value = "";
     correction.innerHTML = "";
@@ -73,7 +79,7 @@ enterButton.onclick = () => {
         }
 
         counter++;
-        if (counter > lessonContent.length) {
+        if (counter >= lessonContent.length) {
             endOfSession();
         } else {
             test(lessonContent[counter]);
@@ -97,7 +103,7 @@ enterButton.onclick = () => {
         }
 
         counter++;
-        if (counter > lessonContent.length) {
+        if (counter >= lessonContent.length) {
             endOfSession();
         } else {
             setTimeout(function () {
