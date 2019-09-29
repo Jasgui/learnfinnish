@@ -80,10 +80,15 @@ var test = (content) => {
 
 var endOfSession = () => {
     console.log("End of session");
+    console.log("remove from Learn");
     console.log(EOSRemoveFromLearn);
+    console.log("remove from Review");
     console.log(EOSRemoveFromReview);
+    console.log("remove from Mistake");
     console.log(EOSRemoveFromMistake);
+    console.log("add to Review");
     console.log(EOSAddToReview);
+    console.log("add to Mistake");
     console.log(EOSAddToMistake);
 
     for (let i = 0; i < lessonContent.length; i++) {
