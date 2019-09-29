@@ -62,23 +62,23 @@ var endOfSession = () => {
         updateScore(lessonContent[i]._id, lessonContent[i].score);
     }
 
-    for (let i = 0; i < EOSRemoveFromLearn, i++) {
+    for (let i = 0; i < EOSRemoveFromLearn; i++) {
         removeItem(EOSRemoveFromLearn[i]._id, idLists.learn);
     }
 
-    for (let i = 0; i < EOSRemoveFromReview, i++) {
+    for (let i = 0; i < EOSRemoveFromReview; i++) {
         removeItem(EOSRemoveFromReview[i]._id, idLists.review);
     }
 
-    for (let i = 0; i < EOSRemoveFromMistake, i++) {
+    for (let i = 0; i < EOSRemoveFromMistake; i++) {
         removeItem(EOSRemoveFromMistake[i]._id, idLists.mistake);
     }
 
-    for (let i = 0; i < EOSAddToReview, i++) {
+    for (let i = 0; i < EOSAddToReview; i++) {
         addItem(EOSAddToReview[i]._id, idLists.review);
     }
 
-    for (let i = 0; i < EOSAddToMistake, i++) {
+    for (let i = 0; i < EOSAddToMistake; i++) {
         addItem(EOSAddToMistake[i]._id, idLists.mistake);
     }
 
