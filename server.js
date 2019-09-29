@@ -61,8 +61,11 @@ app.put('/list/additem', function (req, res) {
 
 app.put('/item/updatescore', async function (req, res) {
 
+    let itemId = req.body.itemId;
+    let newScore = req.body.score;
+
     const itemToUpdate = await Item.find({
-        _id: '5d8fdcec9e2c6e36e60c4c02'
+        _id: itemId
     });
 
     res.send(itemToUpdate);
