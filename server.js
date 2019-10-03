@@ -271,23 +271,21 @@ app.get('/item', function (req, res) {
 
 app.put('/item/updateall', function (req, res) {
 
-    var items = req.body.items;
+    var items = req.updates;
+    
 
-    res.send(items);
+        items.forEach(async function (item, index) {
 
-    //    items.forEach(async function (item, index) {
-    //
-    //        await Item.updateOne({
-    //            _id: item._id
-    //        }, {
-    //            score: item.score
-    //        });
-    //
-    //        console.log("item " & item.finnish & " updated")
-    //    });
-    //
-    //    res.send("items update completed");
+            await Item.updateOne({
+                _id: item._id
+            }, {
+                score: item.score
+            });
 
+            console.log("item " & item.finnish & " updated")
+        });
+
+        res.send("items update completed");
 
 });
 
