@@ -269,6 +269,26 @@ app.get('/item', function (req, res) {
 });
 
 
+app.put('/item/updateall', function (req, res) {
+
+    var items = req.body.items;
+
+    items.forEach(function (item, index) {
+
+        await Item.updateOne({
+            _id: item._id
+        }, {
+            score: item.score
+        });
+
+        console.log("item " & item.finnish & " updated")
+    });
+
+    res.send("items update completed");
+
+
+});
+
 app.get('/list', function (req, res) {
     List.find({}).populate({
         path: 'items',
