@@ -270,7 +270,7 @@ app.get('/item', function (req, res) {
 
 
 
-app.put('/item/updateall', function (req, res) {
+app.put('/item/updateall', async function (req, res) {
     var items = req.body.updates;
 
     for (let i = 0; i < items.length; i++) {
