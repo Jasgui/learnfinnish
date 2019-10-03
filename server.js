@@ -273,7 +273,7 @@ app.put('/item/updateall', function (req, res) {
 
     var items = req.body.items;
 
-    items.forEach(function (item, index) {
+    items.forEach(async function (item, index) {
 
         await Item.updateOne({
             _id: item._id
