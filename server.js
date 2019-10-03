@@ -273,18 +273,20 @@ app.put('/item/updateall', function (req, res) {
 
     var items = req.body.items;
 
-    items.forEach(async function (item, index) {
+    res.send(items);
 
-        await Item.updateOne({
-            _id: item._id
-        }, {
-            score: item.score
-        });
-
-        console.log("item " & item.finnish & " updated")
-    });
-
-    res.send("items update completed");
+    //    items.forEach(async function (item, index) {
+    //
+    //        await Item.updateOne({
+    //            _id: item._id
+    //        }, {
+    //            score: item.score
+    //        });
+    //
+    //        console.log("item " & item.finnish & " updated")
+    //    });
+    //
+    //    res.send("items update completed");
 
 
 });
