@@ -270,6 +270,29 @@ app.get('/item', function (req, res) {
 
 
 
+app.put('/item/updateall', function (req, res) {
+    var items = req.body.updates;
+
+    for (let i = 0; i < items.length; i++) {
+        Item.findOne({
+            _id: items[i]._id
+        }, function (err, item) {
+            item.score = items[i].score;
+            item.save(function (err) {
+                if (err) {
+                    res.status(500).send({
+                        error: "Could not update the item"
+                    })
+                }
+            })
+        })
+    }
+
+    res.send("items updated");
+
+})
+
+
 app.put('/item/updateall', async function (req, res) {
     var items = req.body.updates;
 
