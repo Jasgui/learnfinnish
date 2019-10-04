@@ -274,11 +274,14 @@ app.put('/item/updateall', async function (req, res) {
     var items = req.body.updates;
 
     for (let i = 0; i < items.length; i++) {
-        await Item.updateOne({
+
+        const result = await Item.updateOne({
             _id: items[i]._id
         }, {
             score: items[i].score
         });
+
+
 
         console.log("item " & item.finnish & " updated");
 
