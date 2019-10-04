@@ -1,4 +1,4 @@
-const DATABASE = "testing5";
+const DATABASE = "Oct5";
 const QUESTIONS_PER_LESSON = 20;
 
 var express = require('express');
@@ -269,6 +269,41 @@ app.get('/item', function (req, res) {
 });
 
 
+
+app.post('addall', function (req, res) {
+    var items = req.body.content;
+
+    for (let i = 0; i < items.length; i++) {
+        var item = new Item;
+        item.finnish = items[i].finnish;
+        item.french = items[i].french;
+        item.save(function (err) {
+            if (err) {
+                res.status(500).send({
+                    error: "could not save item"
+                });
+            }
+        })
+    }
+    res.send("all items saved");
+});
+
+app.post('/item', function (req, res) {
+    var item = new Item();
+    item.finnish = req.body.finnish;
+    item.french = req.body.french;
+    item.score = req.body.score;
+    item.alternate = req.body.alternate;
+    item.save(function (err, savedItem) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not save item"
+            });
+        } else {
+            res.send(savedItem);
+        }
+    });
+});
 
 app.put('/item/updateall', function (req, res) {
     var items = req.body.updates;

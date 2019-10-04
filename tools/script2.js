@@ -45,11 +45,13 @@ console.log(test);
 
 btnInit1.onclick = async function () {
     //Add the initial dataset
-    for (var i = 0; i < initialData.length; i++) {
-
-        await postreq(initialData[i], "item");
-    }
-
+   postreq(initialData, "addall");
+    
+    
+//    for (var i = 0; i < initialData.length; i++) {
+//
+//        await postreq(initialData[i], "item");
+//    }
 };
 
 
