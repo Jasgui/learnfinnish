@@ -270,7 +270,7 @@ app.get('/item', function (req, res) {
 
 
 
-app.post('addall', function (req, res) {
+app.post('/addall', function (req, res) {
     var items = req.body.content;
 
     for (let i = 0; i < items.length; i++) {
