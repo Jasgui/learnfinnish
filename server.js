@@ -293,30 +293,6 @@ app.put('/item/updateall', function (req, res) {
 })
 
 
-app.put('/item/updateall', async function (req, res) {
-    var items = req.body.updates;
-
-    for (let i = 0; i < items.length; i++) {
-
-        var query = {
-            _id: items[i]._id
-        };
-        Item.findOneAndUpdate(query, {
-            score: items[i].score
-        }, function (err, result) {
-            if (err) {
-                res.status(500).send("could not update the item");
-            } else {
-                res.send(result);
-            }
-        })
-
-    }
-
-    res.send("update successful");
-
-});
-
 app.get('/list', function (req, res) {
     List.find({}).populate({
         path: 'items',
