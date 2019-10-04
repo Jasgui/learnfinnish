@@ -275,15 +275,18 @@ app.put('/item/updateall', async function (req, res) {
 
     for (let i = 0; i < items.length; i++) {
 
-        const result = await Item.updateOne({
+        var query = {
             _id: items[i]._id
-        }, {
+        };
+        Item.findOneAndUpdate(query, {
             score: items[i].score
-        });
-
-
-
-        console.log("item " & item.finnish & " updated");
+        }, function (err, result) {
+            if (err) {
+                res.status(500).send("could not update the item");
+            } else {
+                res.send(result);
+            }
+        })
 
     }
 
