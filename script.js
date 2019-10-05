@@ -1,4 +1,5 @@
 const DELAY_WRONG_ANSWER = 100;
+const DELAY_RIGHT_ANSWER = 100;
 const question = document.getElementById('question');
 const answer = document.getElementById('answer');
 const correction = document.getElementById('correction');
@@ -201,6 +202,10 @@ enterButton.onclick = () => {
                 lesson.shift();
             }
         }
+
+        setTimeout(function () {
+            test()
+        }, DELAY_RIGHT_ANSWER);
 
     } else {
         correction.innerHTML = lesson[1].finnish;
