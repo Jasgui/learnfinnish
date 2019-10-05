@@ -54,7 +54,9 @@ app.post('/addall', function (req, res) {
             }
         })
     }
-    res.send(result);
+    res.send({
+        success: "saved"
+    });
 
 
 });
