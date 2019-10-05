@@ -67,6 +67,9 @@ startbtn.onclick = () => {
 
 var test = () => {
 
+    console.log("lesson and length");
+    console.log(lesson);
+    console.log(lesson.length);
     if (lesson.length > 0) {
         question.innerHTML = lesson[0].french;
         answer.value = "";
@@ -215,7 +218,7 @@ enterButton.onclick = () => {
         }, DELAY_RIGHT_ANSWER);
 
     } else {
-        correction.innerHTML = lesson[1].finnish;
+        correction.innerHTML = lesson[0].finnish;
 
         if (tested.status === "test") {
             tested.status = "learn";
