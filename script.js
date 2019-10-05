@@ -1,4 +1,4 @@
-const DELAY_WRONG_ANSWER = 10;
+const DELAY_WRONG_ANSWER = 100;
 const question = document.getElementById('question');
 const answer = document.getElementById('answer');
 const correction = document.getElementById('correction');
@@ -9,18 +9,15 @@ var content = [];
 var contentTest = [];
 var contentLearn = [];
 var contentReview = [];
+var contentDone = [];
 var counterTest = 0;
 var counterLearn = 0;
 var counterReview = 0;
+var lesson = [];
 
-
-//import {
-//    normalise,
-//    updateScore,
-//    removeItem,
-//    getListIds,
-//    addItem
-//} from '/module.js';
+import {
+    normalise
+} from '/module.js';
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////START
@@ -36,47 +33,73 @@ startbtn.onclick = () => {
             content = [...data];
 
 
-            ////Separating the content into 3 arrays before ordering them
+            ////Separating the content into 4 arrays before ordering them
 
             for (let i = 0; i < content.length; i++) {
                 if (content[i].status === "review") {
                     contentReview.push(content[i]);
                 } else if (content[i].status === "learn") {
                     contentLearn.push(content[i]);
-                } else {
+                } else if (content[i].status === "test") {
                     contentTest.push(content[i]);
+                } else {
+                    contentDone.push(content[i]);
                 }
             }
 
             contentTest.sort(dynamicSort("order"));
             contentLearn.sort(dynamicSort("order"));
             contentReview.sort(dynamicSort("order"));
+            contentDone.sort(dynamicSort("order"));
 
-            var lesson = getLesson();
+            lesson = getLesson();
 
             console.log(lesson);
+
+
+            test();
 
         })
 
 }
 
 
+var test = () => {
+
+    question.innerHTML = lesson[0].french;
+    answer.value = "";
+    correction.innerHTML = "";
+    console.log("test");
+    console.log(contentTest);
+    console.log("review");
+
+    console.log(contentReview);
+    console.log("learn");
+
+    console.log(contentLearn);
+    console.log("done");
+
+    console.log(contentDone);
+
+};
+
+
 var getLesson = () => {
 
-    var lesson = [];
+    var lessonToBuild = [];
     for (let section = 0; section < 3; section++) {
 
-        lesson.push(findNext("test"));
-        lesson.push(findNext("test"));
-        lesson.push(findNext("learn"));
-        lesson.push(findNext("test"));
-        lesson.push(findNext("test"));
-        lesson.push(findNext("learn"));
-        lesson.push(findNext("review"));
+        lessonToBuild.push(findNext("test"));
+        lessonToBuild.push(findNext("test"));
+        lessonToBuild.push(findNext("learn"));
+        lessonToBuild.push(findNext("test"));
+        lessonToBuild.push(findNext("test"));
+        lessonToBuild.push(findNext("learn"));
+        lessonToBuild.push(findNext("review"));
 
     }
 
-    return lesson;
+    return lessonToBuild;
 };
 
 
@@ -127,61 +150,89 @@ var dynamicSort = (property) => {
     }
 };
 
+
+
+
+answer.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+        event.preventDefault();
+        enterButton.click();
+    }
+});
+
+
+enterButton.onclick = () => {
+
+    var tested = lesson[0];
+
+    if (normalise(answer.value) === normalize(tested.finnish)) {
+        correction.innerHTML = "yes!";
+
+        if (tested.status === "test") {
+            tested.status = "review";
+            tested.level = 0;
+            contentReview.push(tested);
+            contentTest.shift();
+            lesson.shift();
+        } else if (tested.status === "review") {
+            if (tested.level >= 5) {
+                tested.status = "done";
+                tested.level = 0;
+                contentDone.push(tested);
+                contentReview.shift();
+                lesson.shift();
+            } else {
+                tested.level++;
+                contentReview.push(tested);
+                contentReview.shift();
+                lesson.shift();
+            }
+        } else if (tested.status === "learn") {
+            if (tested.level >= 3) {
+                tested.status = "review";
+                tested.level = 0;
+                contentReview.push(tested);
+                contentLearn.shift();
+                lesson.shift();
+            } else {
+                tested.level++;
+                contentLearn.push(tested);
+                contentLearn.shift();
+                lesson.shift();
+            }
+        }
+
+    } else {
+        correction.innerHTML = lesson[1].finnish;
+
+        if (tested.status === "test") {
+            tested.status = "learn";
+            tested.level = 0;
+            contentLearn.push(tested);
+            contentTest.shift();
+            lesson.shift();
+        } else if (tested.status === "review") {
+            tested.status = "learn";
+            tested.level = 0;
+            contentReview.shift();
+            lesson.shift();
+        } else if (tested.status === "learn") {
+            contentLearn.push(tested);
+            contentLearn.shift();
+            lesson.shift();
+        }
+
+        setTimeout(function () {
+            test()
+        }, DELAY_WRONG_ANSWER);
+    }
+
+};
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END
 
 
-//
-//var test = (content) => {
-//
-//
-//    question.innerHTML = content.french;
-//    answer.value = "";
-//    correction.innerHTML = "";
-//
-//};
-//
-//
-//var endOfSession = () => {
-//    console.log("End of session");
-//    console.log("remove from Learn");
-//    console.log(EOSRemoveFromLearn);
-//    console.log("remove from Review");
-//    console.log(EOSRemoveFromReview);
-//    console.log("remove from Mistake");
-//    console.log(EOSRemoveFromMistake);
-//    console.log("add to Review");
-//    console.log(EOSAddToReview);
-//    console.log("add to Mistake");
-//    console.log(EOSAddToMistake);
-//
-//    for (let i = 0; i < lessonContent.length; i++) {
-//        updateScore(lessonContent[i]._id, lessonContent[i].score);
-//    }
-//
-//    for (let i = 0; i < EOSRemoveFromLearn.length; i++) {
-//        removeItem(EOSRemoveFromLearn[i]._id, idList.learn);
-//    }
-//
-//    for (let i = 0; i < EOSRemoveFromReview.length; i++) {
-//        removeItem(EOSRemoveFromReview[i]._id, idList.review);
-//    }
-//
-//    for (let i = 0; i < EOSRemoveFromMistake.length; i++) {
-//        removeItem(EOSRemoveFromMistake[i]._id, idList.mistake);
-//    }
-//
-//    for (let i = 0; i < EOSAddToReview.length; i++) {
-//        addItem(EOSAddToReview[i]._id, idList.review);
-//    }
-//
-//    for (let i = 0; i < EOSAddToMistake.length; i++) {
-//        addItem(EOSAddToMistake[i]._id, idList.mistake);
-//    }
-//
-//
-//
-//
-//}
+
+
 //
 //enterButton.onclick = () => {
 //    if (normalise(answer.value) === normalise(lessonContent[counter].finnish)) {
@@ -244,9 +295,3 @@ var dynamicSort = (property) => {
 //
 //
 //
-//answer.addEventListener("keyup", function (event) {
-//    if (event.keyCode === 13) {
-//        event.preventDefault();
-//        enterButton.click();
-//    }
-//});
