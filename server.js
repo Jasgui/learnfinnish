@@ -83,7 +83,7 @@ app.put('/updateAll', function (req, res) {
 
     items.forEach(item => {
 
-        await Item.updateOne({
+        Item.updateOne({
             _id: item._id
         }, {
             status: item.status,
