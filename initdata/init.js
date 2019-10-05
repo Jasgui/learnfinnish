@@ -1,6 +1,21 @@
 var initialData = {
     content: [
         {
+            finnish: "hyvääääää",
+            french: "saluuuuut"
+		},
+        {
+            finnish: "kiiiitos",
+            french: "merciiiii"
+		}
+
+		]
+
+};
+
+var initialData2 = {
+    content: [
+        {
             finnish: "Ensimmäinen oppitunti",
             french: "Première leçon"
     }, {
