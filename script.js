@@ -98,7 +98,7 @@ var test = () => {
 var getLesson = () => {
 
     var lessonToBuild = [];
-    for (let section = 0; section < 3; section++) {
+    for (let section = 0; section < 1; section++) {
 
         lessonToBuild.push(findNext("test"));
         lessonToBuild.push(findNext("test"));
