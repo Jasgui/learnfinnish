@@ -1,6 +1,8 @@
 const DATABASE = "Oct5-3";
 const QUESTIONS_PER_LESSON = 20;
 
+var async = require('async');
+
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
@@ -268,6 +270,67 @@ app.get('/item', function (req, res) {
     });
 });
 
+
+app.post('/addall', function (req, res) {
+    var items = req.body.content;
+
+    ///////////////////////////
+
+    async.eachSeries(items, function (itemUpdate, inCb) {
+            var item = new Item;
+            item.finnish = itemUpdate.finnish;
+            item.french = itemUpdate.french;
+            item.save(function (err) {
+                if (err) {
+                    res.status(500).send({
+                        error: "Could not save the item"
+                    });
+                }
+            })
+
+
+        }
+
+
+    );
+
+
+
+
+    ///////////////////////////
+
+
+});
+
+
+
+var saveitem = (item) => {
+
+
+};
+
+
+app.post('/addall', function (req, res) {
+
+    var items = req.body.content;
+
+    async.eachSeries(items, function (itemUpdate, callback()) {
+        var item = new Item;
+        item.finnish = itemUpdate.finnish;
+        item.french = itemUpdate.french;
+        item.save(function (err) {
+            if (err) {
+                res.status(500).send({
+                    error: "Error with the save function"
+                });
+            }
+        })
+
+
+    })
+
+
+});
 
 
 app.post('/addall', function (req, res) {
