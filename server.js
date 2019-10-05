@@ -70,11 +70,25 @@ app.get('/getall', function (req, res) {
                 error: "Could not fetch items"
             });
         } else {
-            res.send(items);
+            var itemsArray = JSON.parse(items);
+            itemsArray.sort(dynamicSort("order"));
+            res.send(itemsArray);
         }
     });
 });
 
+
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a, b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END
 
 
