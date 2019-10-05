@@ -45,6 +45,8 @@ console.log(test);
 
 btnInit1.onclick = function () {
     //Add the initial dataset
+    console.log(initialData);
+    console.log(JSON.stringify(initialData));
     postreq(initialData, "addall");
     console.log("doneeee");
 
