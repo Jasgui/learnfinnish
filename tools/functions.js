@@ -1,8 +1,5 @@
 function postreq(data, place, ) {
 
-    var content = JSON.stringify(data);
-    console.log("------");
-    console.log(content);
 
     const url = "http://learnfinnish.xyz:3000/" + place;
 
@@ -15,9 +12,14 @@ function postreq(data, place, ) {
         body: JSON.stringify(data)
     };
 
+
     fetch(url, fetchData)
-        .then(res => res.json())
         .then(res => console.log(res))
+
+
+    //    fetch(url, fetchData)
+    //        .then(res => res.json())
+    //        .then(res => console.log(res))
 
 };
 
