@@ -79,6 +79,7 @@ app.get('/getall', function (req, res) {
 
 app.put('/updateAll', function (req, res) {
 
+    console.log("starting...");
     let items = req.body;
 
     items.forEach(item => {
