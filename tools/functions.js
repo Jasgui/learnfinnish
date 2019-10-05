@@ -55,8 +55,7 @@ var getreq = (place) => {
 
     const url = "http://learnfinnish.xyz:3000/" + place;
     fetch(url)
-        .then((res) => res.json())
-        .then((data) => console.log(data))
+//        .then((res) => res.json())        .then((data) => console.log(data))
 };
 
 
