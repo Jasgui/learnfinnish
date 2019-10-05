@@ -271,25 +271,35 @@ app.get('/item', function (req, res) {
 });
 
 
-var errorHandling = (err, data) => {
-    if (err) {
-        res.status(500).send({
-            error: "Generic error"
-        });
-    } else {
-        res.send(data);
-    }
+var saveItem = (itemUpdate) => {
+
+    var item = new Item();
+    item.finnish = itemUpdate.finnish;
+    item.french = itemUpdate.french;
+    item.save(function (err, savedItem) {
+        if (err) {
+            console.log("error saving the item");
+        } else {
+            console.log(item.finnish + " saved");
+        }
+    })
+
 };
+
+
+
 
 app.post('/addall', function (req, res) {
 
+    var items = req.body.content;
     ///////////////////////////
 
-    item = new Item;
-    item.french = "test";
-    item.finnish = "testti";
+    async.eachSeries(items, function (item, callback) {
 
-    item.save(errorHandling);
+
+
+    })
+
 
 
 
