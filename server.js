@@ -70,7 +70,7 @@ app.get('/getall', function (req, res) {
                 error: "Could not fetch items"
             });
         } else {
-            var itemsArray = JSON.parse(items);
+            var itemsArray = items;
             itemsArray.sort(dynamicSort("order"));
             res.send(itemsArray);
         }
