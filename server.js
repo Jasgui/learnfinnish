@@ -80,19 +80,26 @@ app.get('/getall', function (req, res) {
 app.put('/updateAll', function (req, res) {
 
     let items = req.body;
-    let message = "{success: " + items[0].finnish + "}";
-    res.send(message);
 
-    //    let itemId = req.body.itemId;
-    //    let newScore = req.body.score;
-    //
-    //    await Item.updateOne({
-    //        _id: itemId
-    //    }, {
-    //        score: newScore
-    //    });
-    //
-    //    res.send("done");
+    items.forEach(item => {
+
+        await Item.updateOne({
+            _id: item._id
+        }, {
+            status: item.status,
+            order: item.order,
+            level: item.level
+        });
+
+
+    })
+    res.send({
+        success: "updated"
+    });
+
+
+
+
 
 });
 
