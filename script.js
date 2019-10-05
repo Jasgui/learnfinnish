@@ -67,9 +67,16 @@ startbtn.onclick = () => {
 
 var test = () => {
 
-    question.innerHTML = lesson[0].french;
-    answer.value = "";
-    correction.innerHTML = "";
+    if (lesson.length > 0) {
+        question.innerHTML = lesson[0].french;
+        answer.value = "";
+        correction.innerHTML = "";
+
+    } else {
+
+        endOfSession();
+
+    }
     console.log("test");
     console.log(contentTest);
     console.log("review");
@@ -233,6 +240,34 @@ enterButton.onclick = () => {
     }
 
 };
+
+var endOfSession = () => {
+
+    ///Correct value of order in every separate array
+    correctOrder(contentTest);
+    correctOrder(contentLearn);
+    correctOrder(contentReview);
+    correctOrder(contentDone);
+
+    ///Merge all arrays into a master one
+    var masterContent = [];
+    contentTest.forEach(item => masterContent.push(item));
+    contentReview.forEach(item => masterContent.push(item));
+    contentLearn.forEach(item => masterContent.push(item));
+    contentDone.forEach(item => masterContent.push(item));
+
+    console.log("final list before saving");
+    console.log(masterContent);
+
+};
+
+var correctOrder = (data) => {
+
+    for (let i = 0; i < data.length) {
+        data[i].order = i;
+    }
+};
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END
 
 
