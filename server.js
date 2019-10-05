@@ -44,7 +44,7 @@ app.post('/addall', function (req, res) {
         var item = new Item();
         item.finnish = items[i].finnish;
         item.french = items[i].french;
-        item.order = i;
+        item.position.order = i;
         item.save(function (err, savedItem) {
             if (err) {
                 res.status(500).send({
