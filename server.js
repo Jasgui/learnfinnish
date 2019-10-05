@@ -82,7 +82,7 @@ app.put('/updateAll', function (req, res) {
     let items = req.body;
 
     items.forEach(item => {
-
+        console.log(item.finnish);
         Item.updateOne({
             _id: item._id
         }, {
