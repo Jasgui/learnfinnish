@@ -48,11 +48,10 @@ app.post('/addall', function (req, res) {
                 res.status(500).send({
                     error: "Could not save the item"
                 });
-            } else {
-                res.send(savedItem);
             }
         })
     }
+    res.send(savedItem);
 
 
 });
