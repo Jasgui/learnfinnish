@@ -71,7 +71,7 @@ app.get('/getall', function (req, res) {
             });
         } else {
             var itemsArray = items;
-            itemsArray.sort(dynamicSort("order"));
+            itemsArray.sort(dynamicSort("position.order"));
             res.send(itemsArray);
         }
     });
