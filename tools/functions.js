@@ -1,5 +1,9 @@
 function postreq(data, place, ) {
 
+    var content = JSON.stringify(data);
+    console.log("------");
+    console.log(content);
+
     const url = "http://learnfinnish.xyz:3000/" + place;
 
     let fetchData = {
