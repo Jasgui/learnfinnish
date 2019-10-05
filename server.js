@@ -271,61 +271,34 @@ app.get('/item', function (req, res) {
 });
 
 
-app.post('/addall', function (req, res) {
-    var items = req.body.content;
-
-    ///////////////////////////
-
-    async.eachSeries(items, function (itemUpdate, inCb) {
-            var item = new Item;
-            item.finnish = itemUpdate.finnish;
-            item.french = itemUpdate.french;
-            item.save(function (err) {
-                if (err) {
-                    res.status(500).send({
-                        error: "Could not save the item"
-                    });
-                }
-            })
-
-
-        }
-
-
-    );
-
-
-
-
-    ///////////////////////////
-
-
-});
-
-
-
-
-
-
-app.post('/addall', function (req, res) {
-    var items = req.body.content;
-
-    for (let i = 0; i < items.length; i++) {
-        var item = new Item;
-        item.finnish = items[i].finnish;
-        item.french = items[i].french;
-        item.save(function (err) {
-            if (err) {
-                res.status(500).send({
-                    error: "could not save item"
-                });
-            }
-        })
+var errorHandling = (err, data) => {
+    if (err) {
+        res.status(500).send({
+            error: "Generic error"
+        });
+    } else {
+        res.send(data);
     }
-    res.send({
-        success: "all items saved"
-    });
+};
+
+app.post('/addall', function (req, res) {
+
+    ///////////////////////////
+
+    item = new Item;
+    item.french = "test";
+    item.finnish = "testti";
+
+    item.save(errorHandling);
+
+
+
+    ///////////////////////////
+
+
 });
+
+
 
 app.post('/item', function (req, res) {
     var item = new Item();
