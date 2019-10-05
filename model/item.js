@@ -6,6 +6,7 @@ var item = new Schema({
     finnish: String,
     french: String,
     alternate: [String],
+    order: Number,
     score: {
         type: Number,
         default: 0

@@ -1,4 +1,4 @@
-const DATABASE = "Oct5-3";
+const DATABASE = "Oct5-4";
 const QUESTIONS_PER_LESSON = 20;
 
 var async = require('async');
@@ -292,18 +292,22 @@ var saveItem = (itemUpdate) => {
 app.post('/addall', function (req, res) {
 
     var items = req.body.content;
-    ///////////////////////////
 
-    async.eachSeries(items, function (item, callback) {
-
-
-
-    })
-
-
-
-
-    ///////////////////////////
+    for (let i = 0; i < items.length; i++) {
+        var item = new Item();
+        item.finnish = items[i].finnish;
+        item.french = items[i].french;
+        item.order = i;
+        item.save(function (err, savedItem) {
+            if (err) {
+                res.status(500).send({
+                    error: "Could not save the item"
+                });
+            } else {
+                res.send(savedItem);
+            }
+        })
+    }
 
 
 });
