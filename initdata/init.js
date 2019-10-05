@@ -1,12 +1,12 @@
 var initialData = {
-    content: [
+    "content": [
         {
-            finnish: "hyvääääää",
-            french: "saluuuuut"
+            "finnish": "hyvääääää",
+            "french": "saluuuuut"
 		},
         {
-            finnish: "kiiiitos",
-            french: "merciiiii"
+            "finnish": "kiiiitos",
+            "french": "merciiiii"
 		}
 
 		]
