@@ -71,9 +71,29 @@ app.get('/getall', function (req, res) {
             });
         } else {
             var itemsArray = items;
-            itemsArray.sort(dynamicSort("order"));            res.send(itemsArray);
+            itemsArray.sort(dynamicSort("order"));
+            res.send(itemsArray);
         }
     });
+});
+
+app.put('/updateAll', function (req, res) {
+
+    let items = req.body;
+    let message = "{success: " + items[0].finnish + "}";
+    res.send(message);
+
+    //    let itemId = req.body.itemId;
+    //    let newScore = req.body.score;
+    //
+    //    await Item.updateOne({
+    //        _id: itemId
+    //    }, {
+    //        score: newScore
+    //    });
+    //
+    //    res.send("done");
+
 });
 
 
@@ -88,6 +108,8 @@ function dynamicSort(property) {
         return result * sortOrder;
     }
 };
+
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END
 
 

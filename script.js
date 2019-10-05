@@ -262,6 +262,24 @@ var endOfSession = () => {
     console.log("final list before saving");
     console.log(masterContent);
 
+    const url = "http://learnfinnish.xyz:3000/updateAll";
+
+    let fetchData = {
+        method: 'PUT',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(masterContent)
+    };
+
+
+
+    fetch(url, fetchData)
+        .then(res => res.json())
+        .then(res => console.log(res))
+
+
 };
 
 var correctOrder = (data) => {
