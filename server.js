@@ -1,4 +1,4 @@
-const DATABASE = "Oct5-7";
+const DATABASE = "Oct5-8";
 const QUESTIONS_PER_LESSON = 20;
 
 var async = require('async');
@@ -44,7 +44,7 @@ app.post('/addall', function (req, res) {
         var item = new Item();
         item.finnish = items[i].finnish;
         item.french = items[i].french;
-        item.position.order = i;
+        item.order = i;
         item.save(function (err, savedItem) {
             if (err) {
                 res.status(500).send({
@@ -71,7 +71,7 @@ app.get('/getall', function (req, res) {
             });
         } else {
             var itemsArray = items;
-            itemsArray.sort(dynamicSort("position.order"));
+            itemsArray.sort(dynamicSort("order"));
             res.send(itemsArray);
         }
     });
