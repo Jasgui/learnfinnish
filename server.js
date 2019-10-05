@@ -34,6 +34,8 @@ app.listen(3000, function () {
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////START
 
 
+////NOT USER-FACING
+
 app.post('/addall', function (req, res) {
 
     var items = req.body.content;
@@ -59,14 +61,19 @@ app.post('/addall', function (req, res) {
 });
 
 
-app.put('/sort', function (req, res) {
+////USER-FACING
 
-    Item.sort({
-        order: 'asc'
+app.get('/getall', function (req, res) {
+    Item.find({}, function (err, items) {
+        if (err) {
+            res.status(500).send({
+                error: "Could not fetch items"
+            });
+        } else {
+            res.send(items);
+        }
     });
-
 });
-
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END
 
