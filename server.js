@@ -87,7 +87,7 @@ app.put('/updateAll', function (req, res) {
             _id: newItem._id
         }, function (err, item) {
             item.status = newItem.status;
-            item.score = newItem.score;
+            item.order = newItem.order;
             item.level = newItem.level;
             item.save(function (err) {
                 if (err) {
