@@ -37,7 +37,6 @@ app.listen(3000, function () {
 app.post('/addall', function (req, res) {
 
     var items = req.body.content;
-    var result = [];
 
     for (let i = 0; i < items.length; i++) {
         var item = new Item();
@@ -49,8 +48,6 @@ app.post('/addall', function (req, res) {
                 res.status(500).send({
                     error: "Could not save the item"
                 });
-            } else {
-                result.push(savedItem);
             }
         })
     }
