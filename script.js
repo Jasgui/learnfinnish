@@ -246,6 +246,7 @@ enterButton.onclick = () => {
         } else if (tested.status === "review") {
             tested.status = "learn";
             tested.level = 0;
+            contentLearn.push(tested);
             contentReview.shift();
             lesson.shift();
         } else if (tested.status === "learn") {
