@@ -27,6 +27,22 @@ import {
 
 startbtn.onclick = () => {
 
+    createSession();
+
+};
+
+
+var createSession = () => {
+
+    lesson = [];
+    contentDone = [];
+    contentLearn = [];
+    contentReview = [];
+    contentTest = [];
+    counterLearn = 0;
+    counterReview = 0;
+    counterTest = 0;
+
     const url = "http://learnfinnish.xyz:3000/getall";
     fetch(url)
         .then((res) => res.json())
@@ -62,7 +78,8 @@ startbtn.onclick = () => {
 
         })
 
-}
+
+};
 
 
 var test = () => {
@@ -278,6 +295,7 @@ var endOfSession = () => {
     fetch(url, fetchData)
         .then(res => res.text())
         .then(res => console.log(res))
+
 
 
 };
