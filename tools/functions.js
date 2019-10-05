@@ -14,6 +14,7 @@ function postreq(data, place, ) {
 
 
     fetch(url, fetchData)
+        .then(res => res.text())
         .then(res => console.log(res))
 
 
@@ -55,7 +56,7 @@ var getreq = (place) => {
 
     const url = "http://learnfinnish.xyz:3000/" + place;
     fetch(url)
-        //        .then((res) => res.json())  
+        .then((res) => res.json())
         .then((data) => console.log(data))
 };
 
