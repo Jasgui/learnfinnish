@@ -18,9 +18,9 @@ function postreq(data, place, ) {
 
 
 
-        fetch(url, fetchData)
-            .then(res => res.json())
-            .then(res => console.log(res))
+    fetch(url, fetchData)
+        .then(res => res.json())
+        .then(res => console.log(res))
 
 };
 
@@ -115,8 +115,9 @@ function postreq(data, place, ) {
 
 export {
     postreq,
-    getreq,
-    dropCollection,
-    addItem,
-    getListIds
+    //    getreq,
+    //    dropCollection,
+    //    addItem,
+    //    getListIds
+
 };
