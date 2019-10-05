@@ -165,7 +165,7 @@ enterButton.onclick = () => {
 
     var tested = lesson[0];
 
-    if (normalise(answer.value) === normalize(tested.finnish)) {
+    if (normalise(answer.value) === normalise(tested.finnish)) {
         correction.innerHTML = "yes!";
 
         if (tested.status === "test") {
