@@ -14,7 +14,6 @@ var db = mongoose.connection;
 
 
 var Item = require('./model/item');
-var List = require('./model/list');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
