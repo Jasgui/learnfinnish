@@ -304,33 +304,7 @@ app.post('/addall', function (req, res) {
 
 
 
-var saveitem = (item) => {
 
-
-};
-
-
-app.post('/addall', function (req, res) {
-
-    var items = req.body.content;
-
-    async.eachSeries(items, function (itemUpdate, callback()) {
-        var item = new Item;
-        item.finnish = itemUpdate.finnish;
-        item.french = itemUpdate.french;
-        item.save(function (err) {
-            if (err) {
-                res.status(500).send({
-                    error: "Error with the save function"
-                });
-            }
-        })
-
-
-    })
-
-
-});
 
 
 app.post('/addall', function (req, res) {
