@@ -79,18 +79,23 @@ app.get('/getall', function (req, res) {
 
 app.put('/updateAll', function (req, res) {
 
-    console.log("starting...");
     let items = req.body;
 
-    items.forEach(item => {
-        console.log(item.finnish);
-        Item.updateOne({
-            _id: item._id
-        }, {
-            status: item.status,
-            order: item.order,
-            level: item.level
+    items.forEach(newItem => {
+
+        Item.findOne({
+            _id: newItem._id
+        }, function (err, item) {
+            item.status = newItem.status;
+            item.score = newItem.score;
+            item.level = newItem.level;
+            item.save(function (err) {
+                if (err) {
+                    console.log("error updating data");
+                }
+            })
         });
+
 
 
     })
