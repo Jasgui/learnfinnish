@@ -71,8 +71,7 @@ app.get('/getall', function (req, res) {
             });
         } else {
             var itemsArray = items;
-            itemsArray.sort(dynamicSort("order"));
-            res.send(itemsArray);
+            itemsArray.sort(dynamicSort("order"));            res.send(itemsArray);
         }
     });
 });
@@ -88,7 +87,7 @@ function dynamicSort(property) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
-}
+};
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END
 
 

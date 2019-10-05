@@ -6,6 +6,13 @@ const enterButton = document.getElementById('enterButton');
 const startbtn = document.getElementById('startbtn');
 
 var content = [];
+var contentTest = [];
+var contentLearn = [];
+var contentReview = [];
+var counterTest = 0;
+var counterLearn = 0;
+var counterReview = 0;
+
 
 //import {
 //    normalise,
@@ -27,11 +34,98 @@ startbtn.onclick = () => {
         .then((res) => res.json())
         .then(function (data) {
             content = [...data];
-            console.log(content);
+
+
+            ////Separating the content into 3 arrays before ordering them
+
+            for (let i = 0; i < content.length; i++) {
+                if (content[i].status === "review") {
+                    contentReview.push(content[i]);
+                } else if (content[i].status === "learn") {
+                    contentLearn.push(content[i]);
+                } else {
+                    contentTest.push(content[i]);
+                }
+            }
+
+            contentTest.sort(dynamicSort("order"));
+            contentLearn.sort(dynamicSort("order"));
+            contentReview.sort(dynamicSort("order"));
+
+            var lesson = getLesson();
+
+            console.log(lesson);
+
         })
 
 }
 
+
+var getLesson = () => {
+
+    var lesson = [];
+    for (let section = 0; section < 3; section++) {
+
+        lesson.push(findNext("test"));
+        lesson.push(findNext("test"));
+        lesson.push(findNext("learn"));
+        lesson.push(findNext("test"));
+        lesson.push(findNext("test"));
+        lesson.push(findNext("learn"));
+        lesson.push(findNext("review"));
+
+    }
+
+    return lesson;
+};
+
+
+var findNext = (status) => {
+
+    if (status === "learn") {
+        if (contentLearn.length > 0 && counterLearn <= contentLearn.length) {
+            var result = contentLearn[counterLearn];
+            counterLearn++;
+        } else if (counterTest <= contentTest.length) {
+            var result = contentTest[counterTest];
+            counterTest++;
+        } else {
+            console.log("no more items available");
+        }
+    } else if (status === "review") {
+        if (contentReview.length > 0 && counterReview <= contentReview.length) {
+            var result = contentReview[counterReview];
+            counterReview++;
+        } else if (counterTest <= contentTest.length) {
+            var result = contentTest[counterTest];
+            counterTest++;
+        } else {
+            console.log("no more items available");
+        }
+    } else {
+        if (contentTest.length > 0 && counterTest <= contentTest.length) {
+            var result = contentTest[counterTest];
+            counterTest++;
+        } else {
+            console.log("no more items available");
+        }
+    }
+
+    return result;
+
+};
+
+var dynamicSort = (property) => {
+    var sortOrder = 1;
+    if (property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a, b) {
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+};
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////END
 
