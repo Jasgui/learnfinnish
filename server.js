@@ -285,7 +285,9 @@ app.post('/addall', function (req, res) {
             }
         })
     }
-    res.send("all items saved");
+    res.send({
+        success: "all items saved"
+    });
 });
 
 app.post('/item', function (req, res) {

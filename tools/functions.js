@@ -13,14 +13,10 @@ function postreq(data, place, ) {
     };
 
 
-    fetch(url, fetchData)
-        .then(res => res.text())
-        .then(res => console.log(res))
 
-
-    //    fetch(url, fetchData)
-    //        .then(res => res.json())
-    //        .then(res => console.log(res))
+        fetch(url, fetchData)
+            .then(res => res.json())
+            .then(res => console.log(res))
 
 };
 
