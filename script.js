@@ -117,11 +117,11 @@ var createSession = () => {
 
     if (notFirstTime) {
         console.log("changing the graph");
-        graphData.test = [0];
-        graphData.learn = [0];
-        graphData.review = [0];
-        graphData.done = [0];
-        myChart.update();
+        graphData.test = [];
+        graphData.learn = [];
+        graphData.review = [];
+        graphData.done = [];
+        myChart.reset();
     }
     notFirstTime = true;
 
