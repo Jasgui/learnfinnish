@@ -135,7 +135,7 @@ var getLesson = () => {
 var findNext = (status) => {
 
     if (status === "learn") {
-        if (contentLearn.length > 0 && counterLearn <= contentLearn.length) {
+        if (contentLearn.length > 0 && counterLearn <= contentLearn.length - 1) {
             var result = contentLearn[counterLearn];
             counterLearn++;
         } else if (counterTest <= contentTest.length) {
@@ -145,10 +145,10 @@ var findNext = (status) => {
             console.log("no more items available");
         }
     } else if (status === "review") {
-        if (contentReview.length > 0 && counterReview <= contentReview.length) {
+        if (contentReview.length > 0 && counterReview <= contentReview.length - 1) {
             var result = contentReview[counterReview];
             counterReview++;
-        } else if (contentLearn.length > 0 && counterLearn <= contentLearn.length) {
+        } else if (contentLearn.length > 0 && counterLearn <= contentLearn.length - 1) {
             var result = contentLearn[counterLearn];
             counterLearn++;
         } else if (counterTest <= contentTest.length) {
@@ -158,7 +158,7 @@ var findNext = (status) => {
             console.log("no more items available");
         }
     } else {
-        if (contentTest.length > 0 && counterTest <= contentTest.length) {
+        if (contentTest.length > 0 && counterTest <= contentTest.length - 1) {
             var result = contentTest[counterTest];
             counterTest++;
         } else {
