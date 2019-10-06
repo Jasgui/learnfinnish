@@ -80,9 +80,14 @@ startbtn.onclick = () => {
 addVariantButton.onclick = () => {
 
     var itemToChange = contentLearn[contentLearn.length - 1];
-    console.log("Here goes the correction");
-    console.log(itemToChange);
-    console.log(userAlternate);
+    itemToChange.alternate.push(userAlternate);
+
+    itemToChange.status = "review";
+    itemToChange.level = 0;
+    contentReview.push(itemToChange);
+    contentLearn.pop();
+
+    myChart.update();
 
 
 };
