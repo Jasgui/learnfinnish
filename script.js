@@ -97,6 +97,7 @@ addVariantButton.onclick = () => {
     graphData.done.push(contentDone.length);
     myChart.update();
 
+    goToNext = false;
     test();
 
 
