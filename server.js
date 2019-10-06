@@ -89,6 +89,7 @@ app.put('/updateAll', function (req, res) {
             item.status = newItem.status;
             item.order = newItem.order;
             item.level = newItem.level;
+            item.alternate = newItem.alternate;
             item.save(function (err) {
                 if (err) {
                     console.log("error updating data");
