@@ -8,10 +8,10 @@ var latinAmerica = [40, 20, 10, 16, 24, 38, 74, 167, 508, 784];
 var northAmerica = [6, 3, 2, 2, 7, 26, 82, 172, 312, 433];
 
 Chart.defaults.global.maintainAspectRatio = false;
+Chart.defaults.global.responsive = false;
 
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
-    responsive: false,
     type: 'line',
     data: {
         labels: years,
