@@ -116,10 +116,11 @@ var createSession = () => {
     counterTest = 0;
 
     if (notFirstTime) {
-        graphData.test = [];
-        graphData.learn = [];
-        graphData.review = [];
-        graphData.done = [];
+        console.log("changing the graph");
+        graphData.test = [0];
+        graphData.learn = [0];
+        graphData.review = [0];
+        graphData.done = [0];
         myChart.update();
     }
     notFirstTime = true;
