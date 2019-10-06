@@ -133,7 +133,7 @@ var test = () => {
     if (lesson.length > 0) {
         question.innerHTML = lesson[0].french;
         answer.value = "";
-        correction.innerHTML = "";
+        correction.innerHTML = "...";
 
     } else {
 
