@@ -278,7 +278,14 @@ enterButton.onclick = () => {
 
     tested = lesson[0];
 
-    if (normalise(answer.value) === normalise(tested.finnish)) {
+    var testAlternate = false;
+    for (let x = 0; x < tested.alternate.length; x++) {
+        if (normalise(answer.value) === normalise(tested.alternate[x])) {
+            testAlternate = true;
+        }
+    }
+
+    if (normalise(answer.value) === normalise(tested.finnish) || testAlternate) {
         correction.innerHTML = "yes!";
 
         if (tested.status === "test") {
