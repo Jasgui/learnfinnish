@@ -335,7 +335,7 @@ enterButton.onclick = () => {
         graphData.review.push(contentReview.length);
         graphData.done.push(contentDone.length);
         myChart.update();
-
+        userAlternate = answer.value;
         goToNext = true;
 
     }
