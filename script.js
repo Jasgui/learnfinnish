@@ -16,6 +16,7 @@ var counterTest = 0;
 var counterLearn = 0;
 var counterReview = 0;
 var lesson = [];
+var goToNext = false;
 
 var graphData = {
     test: [],
@@ -23,7 +24,7 @@ var graphData = {
     review: [],
     done: []
 };
-var xaxis = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28];
+var xaxis = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
 
 Chart.defaults.global.responsive = false;
 var ctx = document.getElementById("myChart");
@@ -137,7 +138,7 @@ var test = () => {
     if (lesson.length > 0) {
         question.innerHTML = lesson[0].french;
         answer.value = "";
-        correction.innerHTML = "...";
+        correction.innerHTML = "  ";
 
     } else {
 
@@ -242,6 +243,11 @@ answer.addEventListener("keyup", function (event) {
 
 enterButton.onclick = () => {
 
+    if (goToNext) {
+        goToNext = false;
+        test();
+    }
+
     var tested = lesson[0];
 
     if (normalise(answer.value) === normalise(tested.finnish)) {
@@ -318,9 +324,8 @@ enterButton.onclick = () => {
         graphData.done.push(contentDone.length);
         myChart.update();
 
-        setTimeout(function () {
-            test()
-        }, DELAY_WRONG_ANSWER);
+        goToNext = true;
+
     }
 
 
