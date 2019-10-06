@@ -79,6 +79,10 @@ startbtn.onclick = () => {
 
 addVariantButton.onclick = () => {
 
+    var itemToChange = contentLearn[contentLearn.length - 1];
+    console.log("Here goes the correction");
+    console.log(itemToChange);
+    console.log(userAlternate);
 
 
 };
