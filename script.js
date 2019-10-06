@@ -114,6 +114,13 @@ var createSession = () => {
     counterReview = 0;
     counterTest = 0;
 
+    graphData.test = [];
+    graphData.learn = [];
+    graphData.review = [];
+    graphData.done = [];
+    myChart.update();
+
+
     const url = "http://learnfinnish.xyz:3000/getall";
     fetch(url)
         .then((res) => res.json())
