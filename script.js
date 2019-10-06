@@ -122,8 +122,7 @@ var createSession = () => {
             graphData.learn.push(contentLearn.length);
             graphData.review.push(contentReview.length);
             graphData.done.push(contentDone.length);
-            createChart(graphData);
-
+            myChart.update();
             test();
 
         })
