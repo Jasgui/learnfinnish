@@ -15,7 +15,8 @@ var myChart = new Chart(ctx, {
         labels: years,
         datasets: [
             {
-                data: africa
+                data: africa,
+                data: asia
       }
     ]
     }
