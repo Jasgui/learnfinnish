@@ -39,21 +39,21 @@ var myChart = new Chart(ctx, {
                 data: graphData.learn,
                 label: "Learn",
                 borderColor: "#3399FF",
-                backgroundColor: (51, 153, 255, 0.5),
+                backgroundColor: "rgba(51, 153, 255, 0.5)",
                 fill: true
             },
             {
                 data: graphData.review,
                 label: "Review",
                 borderColor: "#33CC66",
-                backgroundColor: (51, 204, 102, 0.5),
+                backgroundColor: "rgba(51, 204, 102, 0.5)",
                 fill: true
             },
             {
                 data: graphData.done,
                 label: "Done",
                 borderColor: "#FF9966",
-                backgroundColor: (255, 153, 102, 0.5),
+                backgroundColor: "rgba(255, 153, 102, 0.5)",
                 fill: true
             }
     ]
