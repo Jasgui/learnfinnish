@@ -118,11 +118,12 @@ var getLesson = () => {
     for (let section = 0; section < 1; section++) {
 
         lessonToBuild.push(findNext("test"));
-        lessonToBuild.push(findNext("test"));
+        lessonToBuild.push(findNext("learn"));
         lessonToBuild.push(findNext("learn"));
         lessonToBuild.push(findNext("test"));
-        lessonToBuild.push(findNext("test"));
         lessonToBuild.push(findNext("learn"));
+        lessonToBuild.push(findNext("learn"));
+        lessonToBuild.push(findNext("review"));
         lessonToBuild.push(findNext("review"));
 
     }
@@ -147,6 +148,9 @@ var findNext = (status) => {
         if (contentReview.length > 0 && counterReview <= contentReview.length) {
             var result = contentReview[counterReview];
             counterReview++;
+        } else if (contentLearn.length > 0 && counterLearn <= contentLearn.length) {
+            var result = contentLearn[counterLearn];
+            counterLearn++;
         } else if (counterTest <= contentTest.length) {
             var result = contentTest[counterTest];
             counterTest++;
