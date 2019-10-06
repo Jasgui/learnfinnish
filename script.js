@@ -1,5 +1,6 @@
 const DELAY_WRONG_ANSWER = 100;
 const DELAY_RIGHT_ANSWER = 100;
+const NUMBER_OF_SESSIONS = 3;
 const question = document.getElementById('question');
 const answer = document.getElementById('answer');
 const correction = document.getElementById('correction');
@@ -34,19 +35,19 @@ var myChart = new Chart(ctx, {
             {
                 data: graphData.learn,
                 label: "Learn",
-                borderColor: "#3e95cd",
+                borderColor: "blue",
                 fill: false
             },
             {
                 data: graphData.review,
                 label: "Review",
-                borderColor: "#3e95cd",
+                borderColor: "green",
                 fill: false
             },
             {
                 data: graphData.done,
                 label: "Done",
-                borderColor: "#3e95cd",
+                borderColor: "yellow",
                 fill: false
             }
     ]
@@ -158,7 +159,7 @@ var test = () => {
 var getLesson = () => {
 
     var lessonToBuild = [];
-    for (let section = 0; section < 1; section++) {
+    for (let section = 0; section < NUMBER_OF_SESSIONS; section++) {
 
         lessonToBuild.push(findNext("test"));
         lessonToBuild.push(findNext("learn"));
