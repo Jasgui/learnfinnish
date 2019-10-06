@@ -1,4 +1,4 @@
-const DATABASE = "Guillaume";
+const DATABASE = "Guillaume-Oct7";
 const QUESTIONS_PER_LESSON = 20;
 
 var async = require('async');
