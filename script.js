@@ -8,6 +8,7 @@ const enterButton = document.getElementById('enterButton');
 const startbtn = document.getElementById('startbtn');
 const addVariantButton = document.getElementById('addVariant');
 
+var notFirstTime = false;
 var content = [];
 var contentTest = [];
 var contentLearn = [];
@@ -114,12 +115,14 @@ var createSession = () => {
     counterReview = 0;
     counterTest = 0;
 
-    graphData.test = [];
-    graphData.learn = [];
-    graphData.review = [];
-    graphData.done = [];
-    myChart.update();
-
+    if (notFirstTime) {
+        graphData.test = [];
+        graphData.learn = [];
+        graphData.review = [];
+        graphData.done = [];
+        myChart.update();
+    }
+    notFirstTime = true;
 
     const url = "http://learnfinnish.xyz:3000/getall";
     fetch(url)
