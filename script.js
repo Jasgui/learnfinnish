@@ -23,13 +23,46 @@ var graphData = {
     done: []
 };
 
+Chart.defaults.global.responsive = false;
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: xaxis,
+        datasets: [
+            {
+                data: graphData.test,
+                label: "Africa",
+                borderColor: "#3e95cd",
+                fill: false
+            },
+            {
+                data: graphData.learn,
+                label: "Asia",
+                borderColor: "#3e95cd",
+                fill: false
+            },
+            {
+                data: graphData.review,
+                label: "Europe",
+                borderColor: "#3e95cd",
+                fill: false
+            },
+            {
+                data: graphData.done,
+                label: "Latin America",
+                borderColor: "#3e95cd",
+                fill: false
+            }
+    ]
+    }
+});
+
+
 import {
     normalise
 } from '/module.js';
 
-import {
-    createChart
-} from '/chart.js';
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////START
@@ -84,6 +117,11 @@ var createSession = () => {
 
             console.log(lesson);
 
+            graphData.test.push(contentTest.length);
+            graphData.learn.push(contentLearn.length);
+            graphData.review.push(contentReview.length);
+            graphData.done.push(contentDone.length);
+            createChart(graphData);
 
             test();
 
@@ -249,7 +287,7 @@ enterButton.onclick = () => {
         graphData.learn.push(contentLearn.length);
         graphData.review.push(contentReview.length);
         graphData.done.push(contentDone.length);
-        createChart(graphData);
+        myChart.update();
 
         setTimeout(function () {
             test()
@@ -280,7 +318,7 @@ enterButton.onclick = () => {
         graphData.learn.push(contentLearn.length);
         graphData.review.push(contentReview.length);
         graphData.done.push(contentDone.length);
-        createChart(graphData);
+        myChart.update();
 
         setTimeout(function () {
             test()
