@@ -32,26 +32,20 @@ var myChart = new Chart(ctx, {
         labels: xaxis,
         datasets: [
             {
-                data: graphData.test,
-                label: "Africa",
-                borderColor: "#3e95cd",
-                fill: false
-            },
-            {
                 data: graphData.learn,
-                label: "Asia",
+                label: "Learn",
                 borderColor: "#3e95cd",
                 fill: false
             },
             {
                 data: graphData.review,
-                label: "Europe",
+                label: "Review",
                 borderColor: "#3e95cd",
                 fill: false
             },
             {
                 data: graphData.done,
-                label: "Latin America",
+                label: "Done",
                 borderColor: "#3e95cd",
                 fill: false
             }
