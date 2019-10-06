@@ -10,6 +10,7 @@ var northAmerica = [6, 3, 2, 2, 7, 26, 82, 172, 312, 433];
 
 var ctx = document.getElementById("myChart");
 var myChart = new Chart(ctx, {
+    responsive: false;
     type: 'line',
     data: {
         labels: years,
