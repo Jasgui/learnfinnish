@@ -36,19 +36,19 @@ var myChart = new Chart(ctx, {
                 data: graphData.learn,
                 label: "Learn",
                 borderColor: "blue",
-                fill: false
+                fill: true
             },
             {
                 data: graphData.review,
                 label: "Review",
                 borderColor: "green",
-                fill: false
+                fill: true
             },
             {
                 data: graphData.done,
                 label: "Done",
                 borderColor: "yellow",
-                fill: false
+                fill: true
             }
     ]
     }
