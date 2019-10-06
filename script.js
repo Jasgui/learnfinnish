@@ -235,18 +235,19 @@ var dynamicSort = (property) => {
 
 answer.addEventListener("keyup", function (event) {
     if (event.keyCode === 13) {
-        event.preventDefault();
-        enterButton.click();
+        if (goToNext) {
+            goToNext = false;
+            test();
+        } else {
+
+            event.preventDefault();
+            enterButton.click();
+        }
     }
 });
 
 
 enterButton.onclick = () => {
-
-    if (goToNext) {
-        goToNext = false;
-        test();
-    }
 
     var tested = lesson[0];
 
