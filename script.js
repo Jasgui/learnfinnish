@@ -16,9 +16,20 @@ var counterLearn = 0;
 var counterReview = 0;
 var lesson = [];
 
+var graphData = {
+    test: [],
+    learn: [],
+    review: [],
+    done: []
+};
+
 import {
     normalise
 } from '/module.js';
+
+import {
+    createChart
+} from '/chart.js';
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////START
@@ -33,6 +44,12 @@ startbtn.onclick = () => {
 
 
 var createSession = () => {
+
+
+    graphData.learn = [3, 6, 9, 12, 30];
+
+    createChart(graphData);
+
 
     lesson = [];
     contentDone = [];

@@ -34,5 +34,5 @@ function postreq(data, place, ) {
 
 
 export {
-    postreq,
+    postreq
 };
