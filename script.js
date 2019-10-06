@@ -1,6 +1,6 @@
 const DELAY_WRONG_ANSWER = 100;
 const DELAY_RIGHT_ANSWER = 100;
-const NUMBER_OF_SESSIONS = 3;
+const NUMBER_OF_SESSIONS = 1;
 const question = document.getElementById('question');
 const answer = document.getElementById('answer');
 const correction = document.getElementById('correction');
@@ -117,11 +117,14 @@ var createSession = () => {
 
     if (notFirstTime) {
         console.log("changing the graph");
-        graphData.test = [];
-        graphData.learn = [];
-        graphData.review = [];
-        graphData.done = [];
-        myChart.reset();
+        for (let i = 0; i < graphData.test.length; i++) {
+            graphData.test.pop();
+            graphData.learn.pop();
+            graphData.review.pop();
+            graphData.done.pop();
+            myChart.update();
+
+        }
     }
     notFirstTime = true;
 
