@@ -45,12 +45,6 @@ startbtn.onclick = () => {
 
 var createSession = () => {
 
-
-    graphData.learn = [3, 6, 9, 12, 30];
-
-    createChart(graphData);
-
-
     lesson = [];
     contentDone = [];
     contentLearn = [];
@@ -251,6 +245,12 @@ enterButton.onclick = () => {
             }
         }
 
+        graphData.test.push(contentTest.length);
+        graphData.learn.push(contentLearn.length);
+        graphData.review.push(contentReview.length);
+        graphData.done.push(contentDone.length);
+        createChart(graphData);
+
         setTimeout(function () {
             test()
         }, DELAY_RIGHT_ANSWER);
@@ -276,10 +276,17 @@ enterButton.onclick = () => {
             lesson.shift();
         }
 
+        graphData.test.push(contentTest.length);
+        graphData.learn.push(contentLearn.length);
+        graphData.review.push(contentReview.length);
+        graphData.done.push(contentDone.length);
+        createChart(graphData);
+
         setTimeout(function () {
             test()
         }, DELAY_WRONG_ANSWER);
     }
+
 
 };
 
