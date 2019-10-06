@@ -6,6 +6,7 @@ const answer = document.getElementById('answer');
 const correction = document.getElementById('correction');
 const enterButton = document.getElementById('enterButton');
 const startbtn = document.getElementById('startbtn');
+const addVariantButton = document.getElementById('addVariant');
 
 var content = [];
 var contentTest = [];
@@ -17,6 +18,7 @@ var counterLearn = 0;
 var counterReview = 0;
 var lesson = [];
 var goToNext = false;
+var userAlternate = "";
 
 var graphData = {
     test: [],
@@ -75,6 +77,11 @@ startbtn.onclick = () => {
 
 };
 
+addVariantButton.onclick = () => {
+
+
+
+};
 
 var createSession = () => {
 
@@ -138,7 +145,7 @@ var test = () => {
     if (lesson.length > 0) {
         question.innerHTML = lesson[0].french;
         answer.value = "";
-        correction.innerHTML = "  ";
+        correction.innerHTML = ".";
 
     } else {
 
@@ -300,6 +307,7 @@ enterButton.onclick = () => {
 
     } else {
         correction.innerHTML = lesson[0].finnish;
+        userAlternate = answer.value;
 
         if (tested.status === "test") {
             tested.status = "learn";
