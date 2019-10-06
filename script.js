@@ -19,7 +19,7 @@ var counterReview = 0;
 var lesson = [];
 var goToNext = false;
 var userAlternate = "";
-
+var tested = {};
 var graphData = {
     test: [],
     learn: [],
@@ -256,7 +256,7 @@ answer.addEventListener("keyup", function (event) {
 
 enterButton.onclick = () => {
 
-    var tested = lesson[0];
+    tested = lesson[0];
 
     if (normalise(answer.value) === normalise(tested.finnish)) {
         correction.innerHTML = "yes!";
@@ -307,7 +307,6 @@ enterButton.onclick = () => {
 
     } else {
         correction.innerHTML = lesson[0].finnish;
-        userAlternate = answer.value;
 
         if (tested.status === "test") {
             tested.status = "learn";
