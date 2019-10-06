@@ -87,7 +87,17 @@ addVariantButton.onclick = () => {
     contentReview.push(itemToChange);
     contentLearn.pop();
 
+    graphData.test.pop();
+    graphData.learn.pop();
+    graphData.review.pop();
+    graphData.done.pop();
+    graphData.test.push(contentTest.length);
+    graphData.learn.push(contentLearn.length);
+    graphData.review.push(contentReview.length);
+    graphData.done.push(contentDone.length);
     myChart.update();
+
+    test();
 
 
 };
