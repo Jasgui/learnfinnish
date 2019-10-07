@@ -289,7 +289,7 @@ var initialData = {
             finnish: "Kertausvuoropuhelu",
             french: "Dialogue de révision"
     }, {
-            finnish: "Ulkomaalainen matkailijia museossa",
+            finnish: "Ulkomaalainen matkailija museossa",
             french: "Un touriste étranger au musée"
     }, {
             finnish: "Hän harjoittelee suomea",
