@@ -118,14 +118,13 @@ var createSession = () => {
     if (notFirstTime) {
         console.log("changing the graph");
 
-        console.log(graphData);
-        for (let i = 0; i <= graphData.test.length; i++) {
+        var limit = graphData.test.length;
+        for (let i = 0; i < limit; i++) {
             graphData.test.pop();
             graphData.learn.pop();
             graphData.review.pop();
             graphData.done.pop();
             myChart.update();
-            console.log(graphData);
         }
     }
     notFirstTime = true;
