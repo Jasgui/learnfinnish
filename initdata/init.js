@@ -211,7 +211,7 @@ var initialData = {
             finnish: "Olet liian iso",
             french: "Tu es trop grande"
     }, {
-            finnish: "Miski rakastat Heidia?",
+            finnish: "Miksi rakastat Heidia?",
             french: "Pourquoi aimes-tu Heidi ?"
     }, {
             finnish: "Pakkaamme isoa matkalaukkua",
