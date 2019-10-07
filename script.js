@@ -117,7 +117,7 @@ var createSession = () => {
 
     if (notFirstTime) {
         console.log("changing the graph");
-        for (let i = 0; i < graphData.test.length; i++) {
+        for (let i = 0; i <= graphData.test.length; i++) {
             graphData.test.pop();
             graphData.learn.pop();
             graphData.review.pop();
