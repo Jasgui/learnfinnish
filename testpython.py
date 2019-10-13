@@ -1,12 +1,7 @@
-from flask import Flask, json
+from flask import Flask
 
-companies = [{"id": 1, "name": "Company One"}, {"id": 2, "name": "Company Two"}]
+app = flask(__name__)
 
-api = Flask(__name__)
-
-@api.route('/companies', methods=['GET'])
-def get_companies():
-  return json.dumps(companies)
-
-if __name__ == '__main__':
-    api.run()
+@app.route('/')
+def helloworld():
+    return 'hello, world!'
